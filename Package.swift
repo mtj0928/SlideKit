@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "SlideKit",
+    platforms: [.iOS(.v16), .macOS(.v13)],
     products: [
         .library(name: "SlideKit", targets: ["SlideKit"]),
     ],
