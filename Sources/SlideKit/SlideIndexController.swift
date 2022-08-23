@@ -1,5 +1,5 @@
 //
-//  SlidePageIndexController.swift
+//  SlideIndexController.swift
 //  
 //
 //  Created by Junnosuke Matsumoto on 2022/08/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SlidePageIndexController: ObservableObject {
+public class SlideIndexController: ObservableObject {
 
     @Published
     public private(set) var currentIndex = 0
