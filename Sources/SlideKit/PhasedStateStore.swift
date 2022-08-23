@@ -27,7 +27,7 @@ public class PhasedStateStore<State: PhasedState>: ObservableObject {
     }
 
     @discardableResult
-    func back() -> Bool {
+    public func back() -> Bool {
         if let newState = curreent.back() {
             curreent = newState
             return true
