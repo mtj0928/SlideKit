@@ -5,7 +5,18 @@
 //  Created by Junnosuke Matsumoto on 2022/08/23.
 //
 
-import Foundation
+import SwiftUI
+
+private enum ObservableObjectContainerKey: EnvironmentKey {
+    static let defaultValue = ObservableObjectContainer()
+}
+
+extension EnvironmentValues {
+    public var observableObjectContainer: ObservableObjectContainer {
+        get { self[ObservableObjectContainerKey.self] }
+        set { self[ObservableObjectContainerKey.self] = newValue }
+    }
+}
 
 public class ObservableObjectContainer {
 
