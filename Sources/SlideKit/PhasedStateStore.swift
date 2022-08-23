@@ -7,7 +7,14 @@
 
 import Foundation
 
-public class PhasedStateStore<State: PhasedState>: ObservableObject {
+protocol PhasedStateStoreProtocol {
+    @discardableResult func forward() -> Bool
+    @discardableResult func back() -> Bool
+    func backToFirst()
+    func forwardToLast()
+}
+
+public class PhasedStateStore<State: PhasedState>: ObservableObject, PhasedStateStoreProtocol {
 
     @Published public private(set) var curreent: State
 
@@ -31,5 +38,13 @@ public class PhasedStateStore<State: PhasedState>: ObservableObject {
         }
         curreent = newState
         return true
+    }
+
+    public func backToFirst() {
+        curreent = State.initial
+    }
+
+    public func forwardToLast() {
+        curreent = State.allCases.last!
     }
 }

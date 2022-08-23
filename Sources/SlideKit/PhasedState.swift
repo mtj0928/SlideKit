@@ -5,8 +5,12 @@
 //  Created by Junnosuke Matsumoto on 2022/08/23.
 //
 
-public protocol PhasedState: RawRepresentable, CaseIterable where Self.RawValue == Int, Self.AllCases == [Self] {
+public protocol PhasedState: RawRepresentable, CaseIterable, Equatable where Self.RawValue == Int, Self.AllCases == [Self] {
+
     static var initial: Self { get }
+
+    func back() -> Self?
+    func forward() -> Self?
 }
 
 extension PhasedState {
@@ -26,8 +30,8 @@ extension PhasedState {
     public func isAfter(_ state: Self) -> Bool {
         rawValue >= state.rawValue
     }
+}
 
-    public func when(_ state: Self) -> Bool {
-        self.rawValue == state.rawValue
-    }
+public enum SimplePhasedState: Int, PhasedState {
+    case initial
 }

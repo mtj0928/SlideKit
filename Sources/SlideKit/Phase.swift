@@ -17,15 +17,13 @@ public struct Phase<State: PhasedState>: DynamicProperty {
     @ObservedObject
     private var internalPhasedStore = InternalObserservableObject<PhasedStateStore<State>>()
 
-    public init() {
-        internalPhasedStore.observedObject = observableObjectContainer.resolve { .init() }
+    public init(_ state: State.Type = State.self) {
+        internalPhasedStore.observedObject = observableObjectContainer.resolve {
+            PhasedStateStore()
+        }
     }
 
-    public var wrappedValue: State {
-        internalPhasedStore.observedObject!.curreent
-    }
-
-    public var projectedValue: PhasedStateStore<State> {
+    public var wrappedValue: PhasedStateStore<State> {
         internalPhasedStore.observedObject!
     }
 }
