@@ -7,5 +7,5 @@
 
 import SwiftUI
 
-protocol Slide: View {
+public protocol Slide: View {
 }
