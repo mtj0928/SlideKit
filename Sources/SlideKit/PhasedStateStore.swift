@@ -17,23 +17,19 @@ public class PhasedStateStore<State: PhasedState>: ObservableObject {
 
     @discardableResult
     public func forward() -> Bool {
-        if let newState = curreent.forward() {
-            curreent = newState
-            return true
-        }
-        else {
+        guard let newState = curreent.forward() else {
             return false
         }
+        curreent = newState
+        return true
     }
 
     @discardableResult
     public func back() -> Bool {
-        if let newState = curreent.back() {
-            curreent = newState
-            return true
-        }
-        else {
+        guard let newState = curreent.back() else {
             return false
         }
+        curreent = newState
+        return true
     }
 }
