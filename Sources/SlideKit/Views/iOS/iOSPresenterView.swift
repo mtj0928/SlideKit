@@ -11,8 +11,8 @@ import SwiftUI
 public struct iOSPresenterView<Content>: View where Content: View {
 
     private let slideSize: CGSize
-    private let slideIndexController: SlideIndexController
-    private let externalDisplayManager: ExternalDisplayManager
+    @ObservedObject private var slideIndexController: SlideIndexController
+    @ObservedObject private var externalDisplayManager: ExternalDisplayManager
     private let content: () -> Content
 
     public init(
@@ -58,7 +58,7 @@ public struct iOSPresenterView<Content>: View where Content: View {
     private var externalDisplayButton: some View {
         Button(
             action: {
-                Task { await externalDisplayManager.switchDisplayMode() }
+                externalDisplayManager.switchDisplayMode()
             },
             label: {
                 switch externalDisplayManager.externalDisplayMode {

@@ -11,7 +11,7 @@ import UIKit
 public protocol SlideWindowSceneDelegate where Self: UIWindowSceneDelegate {
     var window: UIWindow? { get set }
 
-    func makeRootWindow(windowScene: UIWindowScene, slideIndexController: SlideIndexController) -> UIWindow
+    func makeRootWindow(windowScene: UIWindowScene, slideIndexController: SlideIndexController, slidePresentationMode: SlidePresentationMode) -> UIWindow
 }
 
 extension SlideWindowSceneDelegate {
@@ -22,12 +22,11 @@ extension SlideWindowSceneDelegate {
         window = nil
     }
 
-    func startPresentation(slideIndexController: SlideIndexController) {
-        guard let windowScene = window?.windowScene,
-            windowScene.session.role == .externalDisplay else {
+    func startPresentation(windowScene: UIWindowScene, slideIndexController: SlideIndexController) {
+        guard windowScene.session.role == .externalDisplay else {
             return
         }
-        window = makeRootWindow(windowScene: windowScene, slideIndexController: slideIndexController)
+        window = makeRootWindow(windowScene: windowScene, slideIndexController: slideIndexController, slidePresentationMode: .presentation)
     }
 }
 #endif

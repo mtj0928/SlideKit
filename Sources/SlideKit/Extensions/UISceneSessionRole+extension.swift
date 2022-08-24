@@ -10,7 +10,7 @@ import UIKit
 
 extension UISceneSession.Role {
 
-    static var externalDisplay: UISceneSession.Role {
+    public static var externalDisplay: UISceneSession.Role {
         if #available(iOS 16.0, *) {
             return .windowExternalDisplayNonInteractive
         } else {

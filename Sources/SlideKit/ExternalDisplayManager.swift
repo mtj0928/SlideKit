@@ -33,6 +33,7 @@ public class ExternalDisplayManager: ObservableObject {
     @MainActor
     private func switchToMirroring() {
         externalDisplayWindowScenes.forEach { windowScene in
+            guard windowScene.delegate != nil else { return }
             guard let windowSceneDelegate = windowScene.delegate as? any SlideWindowSceneDelegate else {
                 fatalError("WindowScene must conform SlideWindowSceneDelegate")
             }
@@ -43,10 +44,11 @@ public class ExternalDisplayManager: ObservableObject {
     @MainActor
     private func switchToPresentation() {
         externalDisplayWindowScenes.forEach { windowScene in
+            guard windowScene.delegate != nil else { return }
             guard let windowSceneDelegate = windowScene.delegate as? any SlideWindowSceneDelegate else {
                 fatalError("WindowScene must conform SlideWindowSceneDelegate")
             }
-            windowSceneDelegate.startPresentation(slideIndexController: slideIndexController)
+            windowSceneDelegate.startPresentation(windowScene: windowScene, slideIndexController: slideIndexController)
         }
     }
 }
