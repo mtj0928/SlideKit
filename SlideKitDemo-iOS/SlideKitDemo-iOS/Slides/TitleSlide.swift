@@ -20,3 +20,12 @@ struct TitleSlide: Slide {
             .font(.system(size: 50 * scale))
     }
 }
+
+struct TitleSlide_Previews: PreviewProvider {
+    static var previews: some View {
+        SlidePreview {
+            TitleSlide(title: "Hoge")
+            TitleSlide(title: "Piyo")
+        }
+    }
+}
