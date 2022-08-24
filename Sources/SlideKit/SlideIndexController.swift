@@ -10,17 +10,15 @@ import Foundation
 public class SlideIndexController: ObservableObject {
 
     @Published
-    public private(set) var currentIndex = 0
+    public private(set) var currentIndex: Int
 
-    public private(set) var slides: [any Slide]  = []
+    public let slides: [any Slide]
 
     public var currentSlide: any Slide {
         slides[currentIndex]
     }
 
-    public init() {}
-
-    public func setup(at index: Int, @SlideBuilder slideBuilder: () -> [any Slide]) {
+    public init(index: Int, @SlideBuilder slideBuilder: () -> [any Slide]) {
         self.slides = slideBuilder()
 
         guard index < slides.count else {
@@ -60,6 +58,12 @@ public class SlideIndexController: ObservableObject {
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.forwardToLast()
         return true
+    }
+
+    public func backToFirst() {
+        currentIndex = 0
+        let phasedStateStore = getPhasedStateStore(at: currentIndex)
+        phasedStateStore.backToFirst()
     }
 
     private func getPhasedStateStore(at index: Int) -> any PhasedStateStoreProtocol {

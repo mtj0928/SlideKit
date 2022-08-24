@@ -16,7 +16,7 @@ public protocol Slide: View {
 
 extension Slide where SlidePhasedState == SimplePhasedState {
 
-    var phasedStateStore: PhasedStateStore<SimplePhasedState> {
+    public var phasedStateStore: PhasedStateStore<SimplePhasedState> {
         PhasedStateStore()
     }
 }

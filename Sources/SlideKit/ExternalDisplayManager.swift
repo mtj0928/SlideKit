@@ -9,7 +9,6 @@
 import SwiftUI
 import UIKit
 
-@MainActor
 @available(iOS 15.0, *)
 public class ExternalDisplayManager: ObservableObject {
 
@@ -22,6 +21,7 @@ public class ExternalDisplayManager: ObservableObject {
         self.slideIndexController = slideIndexController
     }
 
+    @MainActor
     public func switchDisplayMode() {
         switch externalDisplayMode {
         case .presentation: switchToMirroring()
@@ -30,6 +30,7 @@ public class ExternalDisplayManager: ObservableObject {
         externalDisplayMode = externalDisplayMode.opposite
     }
 
+    @MainActor
     private func switchToMirroring() {
         externalDisplayWindowScenes.forEach { windowScene in
             guard let windowSceneDelegate = windowScene.delegate as? any SlideWindowSceneDelegate else {
@@ -39,6 +40,7 @@ public class ExternalDisplayManager: ObservableObject {
         }
     }
 
+    @MainActor
     private func switchToPresentation() {
         externalDisplayWindowScenes.forEach { windowScene in
             guard let windowSceneDelegate = windowScene.delegate as? any SlideWindowSceneDelegate else {
@@ -70,5 +72,4 @@ public enum ExternalDisplayMode {
         }
     }
 }
-
 #endif
