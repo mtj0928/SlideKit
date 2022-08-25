@@ -16,35 +16,35 @@ protocol PhasedStateStoreProtocol {
 
 public class PhasedStateStore<State: PhasedState>: ObservableObject, PhasedStateStoreProtocol {
 
-    @Published public private(set) var curreent: State
+    @Published public private(set) var current: State
 
     public init(_ state: State = .initial) {
-        self.curreent = state
+        self.current = state
     }
 
     @discardableResult
     public func forward() -> Bool {
-        guard let newState = curreent.forward() else {
+        guard let newState = current.forward() else {
             return false
         }
-        curreent = newState
+        current = newState
         return true
     }
 
     @discardableResult
     public func back() -> Bool {
-        guard let newState = curreent.back() else {
+        guard let newState = current.back() else {
             return false
         }
-        curreent = newState
+        current = newState
         return true
     }
 
     public func backToFirst() {
-        curreent = State.initial
+        current = State.initial
     }
 
     public func forwardToLast() {
-        curreent = State.allCases.last!
+        current = State.allCases.last!
     }
 }
