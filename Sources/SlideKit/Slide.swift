@@ -10,6 +10,7 @@ import SwiftUI
 public protocol Slide: View {
 
     associatedtype SlidePhasedState: PhasedState
+    typealias Phase = PhaseWrapper<SlidePhasedState>
 
     var phasedStateStore: PhasedStateStore<SlidePhasedState> { get }
 }

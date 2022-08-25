@@ -10,14 +10,22 @@ import SwiftUI
 
 struct TitleSlide: Slide {
 
-    @Environment(\.slideScale)
-    var scale
+    enum SlidePhasedState: Int, PhasedState {
+        case initial, double
+    }
+
+    @Phase var phasedStateStore
 
     let title: String
 
     var body: some View {
-        Text(title)
-            .font(.system(size: 50 * scale))
+        SlideVStack {
+            Text(title)
+            if phasedStateStore.when(.double) {
+                Text(title)
+            }
+        }
+        .slideFontSize(50)
     }
 }
 

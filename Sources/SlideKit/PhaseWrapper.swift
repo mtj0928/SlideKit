@@ -1,5 +1,5 @@
 //
-//  Phase.swift
+//  PhaseWrapper.swift
 //  
 //
 //  Created by Junnosuke Matsumoto on 2022/08/23.
@@ -9,15 +9,15 @@ import Combine
 import SwiftUI
 
 @propertyWrapper
-public struct Phase<State: PhasedState>: DynamicProperty {
+public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
 
     @Environment(\.observableObjectContainer)
     private var observableObjectContainer
 
     @ObservedObject
-    private var internalPhasedStore = InternalObserservableObject<PhasedStateStore<State>>()
+    private var internalPhasedStore = InternalObservableObject<PhasedStateStore<State>>()
 
-    public init(_ state: State.Type = State.self) {
+    public init() {
         internalPhasedStore.observedObject = observableObjectContainer.resolve {
             PhasedStateStore()
         }
@@ -28,7 +28,7 @@ public struct Phase<State: PhasedState>: DynamicProperty {
     }
 }
 
-private class InternalObserservableObject<ObservedObject: ObservableObject>: ObservableObject {
+private class InternalObservableObject<ObservedObject: ObservableObject>: ObservableObject {
 
     var observedObject: ObservedObject? {
         willSet {

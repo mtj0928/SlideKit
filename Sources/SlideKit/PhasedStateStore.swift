@@ -47,4 +47,12 @@ public class PhasedStateStore<State: PhasedState>: ObservableObject, PhasedState
     public func forwardToLast() {
         current = State.allCases.last!
     }
+
+    public func when(_ state: State) -> Bool {
+        current == state
+    }
+
+    public func after(_ state: State) -> Bool {
+        current.isAfter(state)
+    }
 }
