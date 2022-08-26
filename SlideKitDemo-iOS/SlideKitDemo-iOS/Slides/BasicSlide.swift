@@ -23,7 +23,6 @@ struct BasicSlide: Slide {
             } child: {
                 Item("AAA")
             }
-
         }
     }
 }
