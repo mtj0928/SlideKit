@@ -48,7 +48,7 @@ public class ExternalDisplayManager: ObservableObject {
             guard let windowSceneDelegate = windowScene.delegate as? any SlideWindowSceneDelegate else {
                 fatalError("WindowScene must conform SlideWindowSceneDelegate")
             }
-            windowSceneDelegate.startPresentation(windowScene: windowScene, slideIndexController: slideIndexController)
+            windowSceneDelegate.startPresentation(windowScene: windowScene)
         }
     }
 }
