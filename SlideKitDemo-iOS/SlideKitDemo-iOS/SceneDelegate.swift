@@ -61,7 +61,7 @@ extension SlideIndexController {
     @MainActor
     fileprivate static let shared = SlideIndexController(index: 0) {
         TitleSlide(title: "Hoge")
-        TitleSlide(title: "Piyo")
+        BasicSlide()
     }
 }
 

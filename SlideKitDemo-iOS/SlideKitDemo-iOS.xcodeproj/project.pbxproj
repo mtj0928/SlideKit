@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E2C03928B8D82D0076F292 /* BasicSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2C03828B8D82D0076F292 /* BasicSlide.swift */; };
 		1808A4C228B674A500E7AC77 /* SlideKitDemo_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4C128B674A500E7AC77 /* SlideKitDemo_iOSApp.swift */; };
 		1808A4C628B674A600E7AC77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1808A4C528B674A600E7AC77 /* Assets.xcassets */; };
 		1808A4C928B674A600E7AC77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1808A4C828B674A600E7AC77 /* Preview Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04E2C03828B8D82D0076F292 /* BasicSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSlide.swift; sourceTree = "<group>"; };
 		1808A4BE28B674A500E7AC77 /* SlideKitDemo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SlideKitDemo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1808A4C128B674A500E7AC77 /* SlideKitDemo_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideKitDemo_iOSApp.swift; sourceTree = "<group>"; };
 		1808A4C528B674A600E7AC77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				1808A4DA28B677F200E7AC77 /* TitleSlide.swift */,
+				04E2C03828B8D82D0076F292 /* BasicSlide.swift */,
 			);
 			path = Slides;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1808A4D028B674CB00E7AC77 /* AppDelegate.swift in Sources */,
+				04E2C03928B8D82D0076F292 /* BasicSlide.swift in Sources */,
 				1808A4C228B674A500E7AC77 /* SlideKitDemo_iOSApp.swift in Sources */,
 				1808A4DB28B677F200E7AC77 /* TitleSlide.swift in Sources */,
 				1808A4D228B6751900E7AC77 /* SceneDelegate.swift in Sources */,
