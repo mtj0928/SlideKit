@@ -38,6 +38,10 @@ extension View {
     public func slidePadding(_ edges: Edge.Set = .all, _ length: CGFloat = 24) -> some View {
         modifier(SlidePaddingModifier(edges: edges, length: length))
     }
+
+    public func slidePadding(_ length: CGFloat = 24) -> some View {
+        slidePadding(.all, length)
+    }
 }
 
 struct SlideFrameModifier: ViewModifier {
