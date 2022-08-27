@@ -20,7 +20,6 @@ public struct PresentationView<Content>: View where Content: View {
     public var body: some View {
         ZStack(alignment: .center) {
             Color.black
-                .ignoresSafeArea()
             SlideScreen(slideSize: slideSize) {
                 content()
             }
