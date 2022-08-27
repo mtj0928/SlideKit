@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SlideKitDemo-macOS/SlideKitDemo-macOS.xcodeproj">
+      location = "group:SlideKitDemo-iOS/SlideKitDemo-iOS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SlideKitDemo-iOS/SlideKitDemo-iOS.xcodeproj">
+      location = "group:SlideKitDemo-macOS/SlideKitDemo-macOS.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:">
