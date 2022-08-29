@@ -12,12 +12,20 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.1.4"),
+        .package(url: "https://github.com/stencilproject/Stencil.git", from: "0.15.1"),
     ],
     targets: [
-        .executableTarget(name: "SlideKitCLI", dependencies: [
-            "SlideKit",
-            .product(name: "ArgumentParser", package: "swift-argument-parser")
-        ]),
+        .executableTarget(
+            name: "SlideKitCLI",
+            dependencies: [
+                "SlideKit",
+                .product(name: "Stencil", package: "Stencil"),
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+            ],
+            resources: [
+                .process("Resources")
+            ]
+        ),
         .target(name: "SlideKit", dependencies: []),
         .testTarget(name: "SlideKitTests", dependencies: ["SlideKit"]),
     ]

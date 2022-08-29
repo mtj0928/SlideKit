@@ -1,0 +1,27 @@
+//
+//  SampleSlide.swift
+//
+//  This file is automatically generates by SlideKit
+//
+
+import SlideKit
+import SwiftUI
+
+struct SampleSlide: Slide {
+    var body: some View {
+        HeaderSlide("Sample Slide") {
+            Item("This is a sample slide.") {
+                Item("Preview is also available.")
+            }
+            Item("You can remove the slide.")
+        }
+    }
+}
+
+struct SampleSlide_Previews: PreviewProvider {
+    static var previews: some View {
+        SlidePreview {
+            SampleSlide()
+        }
+    }
+}

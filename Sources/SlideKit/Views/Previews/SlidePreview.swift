@@ -29,6 +29,7 @@ public struct SlidePreview: View {
                 .background(backgroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
+        .ignoresSafeArea()
     }
 
     public func previewSlideBackgroundColor(_ color: Color) -> some View {
