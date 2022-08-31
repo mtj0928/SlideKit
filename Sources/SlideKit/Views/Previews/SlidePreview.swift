@@ -30,6 +30,7 @@ public struct SlidePreview: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
         .ignoresSafeArea()
+        .aspectRatio(slideSize, contentMode: .fit)
     }
 
     public func previewSlideBackgroundColor(_ color: Color) -> some View {
