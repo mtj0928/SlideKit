@@ -11,67 +11,54 @@ import SlideKit
 @main
 struct SlideKitDemo_macOSApp: App {
 
-    @NSApplicationDelegateAdaptor(AppDelegate.self)
-    var appDelegate
+    /// Please edit the default value to the size you want
+    let slideSize = SlideSize.standard16_9
+
+    //// Please add your slide into the trailing closure
+    let slideIndexController = SlideIndexController {
+        BasicSlide()
+    }
 
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                Color.black
-                PresentationView(slideSize: appDelegate.slideSize) {
-                    SlideRouterView(slideIndexController: appDelegate.slideIndexController)
-                        .background(.white)
-                }
-                .preferredColorScheme(.light)
-                .aspectRatio(appDelegate.slideSize, contentMode: .fit)
+            PresentationView(slideSize: slideSize) {
+                SlideRouterView(slideIndexController: slideIndexController)
+                    .background(.white)
             }
-            .ignoresSafeArea()
         }
         .windowStyle(.hiddenTitleBar)
         .commands {
             CommandGroup(after: .undoRedo) {
-                Button("forward") {
-                    appDelegate.slideIndexController.forward()
-                }
-                .keyboardShortcut("k", modifiers: .command)
-                Button("back") {
-                    appDelegate.slideIndexController.back()
-                }
-                .keyboardShortcut("j", modifiers: .command)
+                forwardButton(.rightArrow)
+                forwardButton(.return)
+                backButton(.leftArrow)
             }
 
-            CommandGroup(replacing: CommandGroupPlacement.newItem) {
+            CommandGroup(after: .windowList) {
+                Button("Open Presenter Window") { NSWorkspace.shared.open(URL(string: "slide://editor")!) }
+                    .keyboardShortcut("p", modifiers: .command)
             }
         }
-    }
-}
-class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let slideSize = SlideSize.standard16_9
-    let slideIndexController = SlideIndexController(index: 0) {
-        BasicSlide()
-    }
-
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        NSApp.windows.forEach { window in
-            window.delegate = self
-
-            window.standardWindowButton(.zoomButton)?.isHidden = true
-            window.standardWindowButton(.miniaturizeButton)?.isHidden = true
-            window.standardWindowButton(.closeButton)?.isHidden = true
+        WindowGroup {
+            macOSPresenterView(slideSize: slideSize, slideIndexController: slideIndexController) {
+                SlideRouterView(slideIndexController: slideIndexController)
+                    .background(.white)
+            }
         }
+        .handlesExternalEvents(matching: ["editor"])
     }
 }
 
-extension AppDelegate: NSWindowDelegate {
+extension SlideKitDemo_macOSApp {
 
-    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
-        NSSize(width: slideSize.ratio * frameSize.height, height: frameSize.height)
+    private func forwardButton(_ key: KeyEquivalent) -> some View {
+        Button("forward") { slideIndexController.forward() }
+            .keyboardShortcut(key, modifiers: [])
     }
-}
 
-extension CGSize {
-    var ratio: CGFloat {
-        width / height
+    private func backButton(_ key: KeyEquivalent) -> some View {
+        Button("back") { slideIndexController.back() }
+            .keyboardShortcut(key, modifiers: [])
     }
 }

@@ -18,6 +18,10 @@ extension SlideIndexController {
                 .background(.white)
                 .allowsHitTesting(false)
         }
+
+        var script: String {
+            "This is a script for \(text)."
+        }
     }
 
     @MainActor

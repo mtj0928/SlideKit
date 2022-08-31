@@ -24,8 +24,8 @@ public struct SlideRouterView: View {
             back: { slideIndexController.back() },
             forward: { slideIndexController.forward() }
         )
-        .ignoresSafeArea()
         .environment(\.slideIndexController, slideIndexController)
+        .foregroundColor(.black)
     }
 }
 

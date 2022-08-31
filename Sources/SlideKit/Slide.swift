@@ -13,6 +13,12 @@ public protocol Slide: View {
     typealias Phase = PhaseWrapper<SlidePhasedState>
 
     var phasedStateStore: PhasedStateStore<SlidePhasedState> { get }
+
+    var script: String { get }
+}
+
+extension Slide {
+    public var script: String { "" }
 }
 
 extension Slide where SlidePhasedState == SimplePhasedState {

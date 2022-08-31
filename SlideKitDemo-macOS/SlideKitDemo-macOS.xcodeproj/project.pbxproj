@@ -21,6 +21,7 @@
 		04E2C08628B9155E0076F292 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04E2C08828B9155E0076F292 /* SlideKitDemo_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlideKitDemo_macOS.entitlements; sourceTree = "<group>"; };
 		04E2C09228B9AA820076F292 /* BasicSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSlide.swift; sourceTree = "<group>"; };
+		18C893BB28BE64B600A8054D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		04E2C07E28B9155D0076F292 /* SlideKitDemo-macOS */ = {
 			isa = PBXGroup;
 			children = (
+				18C893BB28BE64B600A8054D /* Info.plist */,
 				04E2C07F28B9155D0076F292 /* SlideKitDemo_macOSApp.swift */,
 				04E2C09128B9AA770076F292 /* Slides */,
 				04E2C08328B9155E0076F292 /* Assets.xcassets */,
@@ -291,15 +293,17 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SlideKitDemo-macOS/Preview Content\"";
-				DEVELOPMENT_TEAM = B63K72WB8Z;
+				DEVELOPMENT_TEAM = 79Q7G522V8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SlideKitDemo-macOS/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.matsuji.SlideKitDemo-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -318,15 +322,17 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SlideKitDemo-macOS/Preview Content\"";
-				DEVELOPMENT_TEAM = B63K72WB8Z;
+				DEVELOPMENT_TEAM = 79Q7G522V8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SlideKitDemo-macOS/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.matsuji.SlideKitDemo-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
