@@ -77,6 +77,12 @@ public class SlideIndexController: ObservableObject {
         let slide = slides[index]
         return slide.typeErasedPhasedStateStore
     }
+
+    public func move(to index: Int) {
+        currentIndex = index
+        let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
+        newPhasedStateStore.backToFirst()
+    }
 }
 
 extension Slide {
