@@ -18,6 +18,14 @@ public struct SlideRouterView: View {
     public var body: some View {
         ZStack {
             AnyView(slideIndexController.currentSlide)
+
+            if !slideIndexController.currentSlide.shouldHideIndex {
+                Text("\(slideIndexController.currentIndex)")
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                    .slideFontSize(30)
+                    .slidePadding()
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .slideTransition(

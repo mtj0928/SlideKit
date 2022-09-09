@@ -14,7 +14,7 @@ struct SlideKitDemo_macOSApp: App {
     /// Please edit the default value to the size you want
     let slideSize = SlideSize.standard16_9
 
-    //// Please add your slide into the trailing closure
+    /// Please add your slide into the trailing closure
     let slideIndexController = SlideIndexController {
         BasicSlide()
     }

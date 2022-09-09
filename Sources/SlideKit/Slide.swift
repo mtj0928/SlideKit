@@ -15,10 +15,13 @@ public protocol Slide: View {
     var phasedStateStore: PhasedStateStore<SlidePhasedState> { get }
 
     var script: String { get }
+
+    var shouldHideIndex: Bool { get }
 }
 
 extension Slide {
     public var script: String { "" }
+    public var shouldHideIndex: Bool { false }
 }
 
 extension Slide where SlidePhasedState == SimplePhasedState {
