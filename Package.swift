@@ -9,9 +9,11 @@ let package = Package(
     products: [
         .library(name: "SlideKit", targets: ["SlideKit"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/JohnSundell/Splash", from: "0.1.0")
+    ],
     targets: [
-        .target(name: "SlideKit", dependencies: []),
+        .target(name: "SlideKit", dependencies: ["Splash"]),
         .testTarget(name: "SlideKitTests", dependencies: ["SlideKit"]),
     ]
 )
