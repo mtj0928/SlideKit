@@ -37,13 +37,19 @@ public struct SharedObject<Observable: ObservableObject>: DynamicProperty {
     @ObservedObject
     private var internalPhasedStore = InternalObservableObject<Observable>()
 
-
     public init(wrappedValue factory: @autoclosure @escaping () -> Observable) {
         internalPhasedStore.observedObject = observableObjectContainer.resolve(factory)
     }
 
     public var wrappedValue: Observable {
         internalPhasedStore.observedObject!
+    }
+
+    public var projectedValue: Binding<Observable> {
+        Binding(
+            get: { internalPhasedStore.observedObject! },
+            set: { internalPhasedStore.observedObject = $0 }
+        )
     }
 }
 
