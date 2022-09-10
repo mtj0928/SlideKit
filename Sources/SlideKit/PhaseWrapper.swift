@@ -28,6 +28,25 @@ public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
     }
 }
 
+@propertyWrapper
+public struct SharedObject<Observable: ObservableObject>: DynamicProperty {
+
+    @Environment(\.observableObjectContainer)
+    private var observableObjectContainer
+
+    @ObservedObject
+    private var internalPhasedStore = InternalObservableObject<Observable>()
+
+
+    public init(wrappedValue factory: @autoclosure @escaping () -> Observable) {
+        internalPhasedStore.observedObject = observableObjectContainer.resolve(factory)
+    }
+
+    public var wrappedValue: Observable {
+        internalPhasedStore.observedObject!
+    }
+}
+
 private class InternalObservableObject<ObservedObject: ObservableObject>: ObservableObject {
 
     var observedObject: ObservedObject? {
