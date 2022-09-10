@@ -1,17 +1,12 @@
 //
-//  File.swift
+//  SlideCodeFormat.swift
 //  
 //
 //  Created by Junnosuke Matsumoto on 2022/09/09.
 //
 
 import Splash
-#if os(iOS)
-import UIKit
-#else
-import AppKit
-#endif
-
+import SwiftUI
 
 struct SlideCodeFormat: OutputFormat {
     let theme: Theme
@@ -32,16 +27,11 @@ extension SlideCodeFormat {
             self.lineSpacing = lineSpacing
         }
 
-#if os(iOS)
-        typealias Font = UIFont
-#else
-        typealias Font = NSFont
-#endif
-        private lazy var regularFont = Font.monospacedSystemFont(ofSize: CGFloat(theme.font.size), weight: .regular)
-        private lazy var boldFont = Font.monospacedSystemFont(ofSize: CGFloat(theme.font.size), weight: .medium)
-        private var string = NSMutableAttributedString()
+        private lazy var regularFont = SwiftUI.Font.system(size: CGFloat(theme.font.size), weight: .regular, design: .monospaced)
+        private lazy var boldFont = SwiftUI.Font.system(size: CGFloat(theme.font.size), weight: .medium, design: .monospaced)
+        private var string = AttributedString()
 
-        mutating func font(type: TokenType) -> Font {
+        mutating func font(type: TokenType) -> SwiftUI.Font {
             switch type {
             case .keyword: return boldFont
             default: return regularFont
@@ -62,20 +52,18 @@ extension SlideCodeFormat {
             append(whitespace, font: regularFont, color: color)
         }
 
-        public func build() -> NSAttributedString {
-            return NSAttributedString(attributedString: string)
+        public func build() -> AttributedString {
+            string
         }
 
-        private func append(_ string: String, font: Font, color: Splash.Color) {
+        private mutating func append(_ string: String, font: SwiftUI.Font, color: Splash.Color) {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = lineSpacing
 
-            let attributedString = NSAttributedString(string: string, attributes: [
-                .foregroundColor: color,
-                .font: font,
-                .paragraphStyle: paragraphStyle
-            ])
-
+            var attributedString = AttributedString(string)
+            attributedString.foregroundColor = Color(color)
+            attributedString.font = font
+            attributedString.paragraphStyle = paragraphStyle
             self.string.append(attributedString)
         }
     }
