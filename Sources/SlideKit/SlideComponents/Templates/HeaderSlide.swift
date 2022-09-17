@@ -7,42 +7,31 @@
 
 import SwiftUI
 
-public struct HeaderSlide<Header, Content>: Slide where Header: View, Content: View {
+public struct HeaderSlide: View {
 
-    let header: () -> Header
-    let content: () -> Content
+    @Environment(\.headerSlideStyle)
+    private var style
 
-    public init(_ header: String, @ViewBuilder content: @escaping () -> Content) where Header == Text {
-        self.header = {
-            Text(header)
-                .fontWeight(.semibold)
-        }
-        self.content = content
+    private var configuration: HeaderSlideStyleConfiguration
+
+    public init(_ header: String, fontWeight: Font.Weight = .semibold, @ViewBuilder content: @escaping () -> some View) {
+        self.configuration = HeaderSlideStyleConfiguration(
+            header: .init {
+                Text(header)
+                    .fontWeight(fontWeight)
+            },
+            content: .init { content() }
+        )
     }
 
-    public init(@ViewBuilder header: @escaping () -> Header, @ViewBuilder content: @escaping () -> Content) {
-        self.header = header
-        self.content = content
+    public init(@ViewBuilder header: @escaping () -> some View, @ViewBuilder content: @escaping () -> some View) {
+        self.configuration = HeaderSlideStyleConfiguration(
+            header: .init { header() },
+            content: .init { content() }
+        )
     }
 
     public var body: some View {
-        SlideVStack(alignment: .leading, spacing: .zero) {
-            SlideVStack(alignment: .leading, spacing: 80) {
-                SlideHStack(spacing: 32) {
-                    Capsule()
-                        .foregroundColor(.accentColor)
-                        .slideFrame(width: 10, height: 120)
-                    header()
-                        .slideFontSize(90)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                SlideVStack(alignment: .leading, spacing: 48) {
-                    content()
-                        .slideFontSize(48)
-                }
-            }
-            Spacer(minLength: 0)
-        }
-        .slidePadding(60)
+        style.makeBody(configuration: configuration)
     }
 }
