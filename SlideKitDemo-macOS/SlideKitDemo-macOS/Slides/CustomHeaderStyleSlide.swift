@@ -10,11 +10,16 @@ import SwiftUI
 
 struct CustomHeaderStyleSlide: Slide {
     var body: some View {
-        HeaderSlide("Custom Header Style Slide") {
-            Item("This is a custom header slide.")
-            Item("You can customize HeaderSlide layout by HeaderSlideStyle")
+        HeaderSlide("Custom Style Slide") {
+            Item("Header Slide Style") {
+                Item("You can customize the layout of HeaderSlide by HeaderSlideStyle")
+            }
+            Item("Item Style") {
+                Item("You can also customize the design of Item by ItemStyle")
+            }
         }
         .headerSlideStyle(CustomHeaderStyle())
+        .itemStyle(CustomItemStyle())
     }
 }
 
@@ -30,12 +35,45 @@ struct CustomHeaderStyle: HeaderSlideStyle {
                 .background {
                     Color.accentColor
                 }
-            SlideVStack(alignment: .leading, spacing: 24) {
+            SlideVStack(alignment: .leading, spacing: 48) {
                 configuration.content
             }
             .slidePadding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+}
+
+struct CustomItemStyle: ItemStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        SlideVStack(alignment: .leading, spacing: 28) {
+            SlideHStack(alignment: .firstTextBaseline, spacing: 10) {
+                Group {
+                    switch configuration.accessory {
+                    case .bullet:
+                        let text: String = (0..<configuration.itemDepth).reduce("#", { result, _ in result + "#" })
+                        Text(text)
+                            .fontWeight(.semibold)
+                    case .string(let text):
+                        Text("\(text).")
+                            .fontWeight(.semibold)
+                    case .number(let number):
+                        Text("\(number).")
+                    case nil: EmptyView()
+                    }
+                }
+                .slideFontSize(configuration.fontSize)
+
+                configuration.label
+                    .slideFontSize(configuration.fontSize)
+                    .fixedSize()
+            }
+
+
+            if let child = configuration.child {
+                child.slidePadding(.leading, configuration.fontSize)
+            }
+        }
     }
 }
 

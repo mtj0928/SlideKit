@@ -23,6 +23,7 @@ extension View {
         environment(\.headerSlideStyle, AnyHeaderSlideStyle(style: style))
     }
 }
+
 public protocol HeaderSlideStyle {
     associatedtype Body : View
 
