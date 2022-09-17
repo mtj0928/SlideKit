@@ -17,6 +17,7 @@ struct SlideKitDemo_macOSApp: App {
     /// Please add your slide into the trailing closure
     let slideIndexController = SlideIndexController {
         BasicSlide()
+        CustomHeaderStyleSlide()
     }
 
     var body: some Scene {
