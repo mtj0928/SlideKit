@@ -2,7 +2,7 @@
 //  Item.swift
 //  
 //
-//  Created by JP27007 on 2022/08/26.
+//  Created by Junnosuke Matsumoto on 2022/08/26.
 //
 
 import SwiftUI
@@ -10,6 +10,7 @@ import SwiftUI
 public enum ItemAccessory {
     case bullet
     case string(String)
+    case number(Int)
 }
 
 extension ItemAccessory: ExpressibleByStringLiteral {
@@ -20,90 +21,78 @@ extension ItemAccessory: ExpressibleByStringLiteral {
 
 extension ItemAccessory: ExpressibleByIntegerLiteral {
     public init(integerLiteral value: IntegerLiteralType) {
-        self = .string("\(value)")
+        self = .number(value)
     }
 }
 
-public struct Item<Label, ChildContent>: View where Label: View, ChildContent: View {
+public struct Item: View {
 
-    private let label: () -> Label
+    @Environment(\.itemStyle)
+    private var itemStyle
+
+    @Environment(\.itemDepth)
+    private var itemDepth
+
     private let accessory: ItemAccessory?
-    private let child: (() -> ChildContent)?
-    private let slideFontSize: CGFloat
+    private let label: () -> AnyView
+    private let fontSize: CGFloat
+    private let  child: (() -> AnyView)?
 
     public init(
         _ text: LocalizedStringKey,
         slideFontSize: CGFloat = 48,
         accessory: ItemAccessory? = .bullet,
-        @ViewBuilder child: @escaping () -> ChildContent
-    ) where Label == Text {
-        self.label = { Text(text) }
-        self.child = child
+        @ViewBuilder child: @escaping () -> some View
+    ) {
+        self.label = { AnyView(Text(text)) }
+        self.child = { AnyView(child()) }
         self.accessory = accessory
-        self.slideFontSize = slideFontSize
+        self.fontSize = slideFontSize
     }
 
     public init(
         accessory: ItemAccessory? = .bullet,
         slideFontSize: CGFloat = 48,
-        label: @escaping () -> Label,
-        @ViewBuilder child: @escaping () -> ChildContent
+        label: @escaping () -> some View,
+        @ViewBuilder child: @escaping () -> some View
     ) {
-        self.label = label
-        self.child = child
+        self.label = { AnyView(label()) }
+        self.child = { AnyView(child()) }
         self.accessory = accessory
-        self.slideFontSize = 48
+        self.fontSize = slideFontSize
     }
 
     public init(
         _ text: String,
         slideFontSize: CGFloat = 48,
         accessory: ItemAccessory? = .bullet
-    ) where Label == Text, ChildContent == EmptyView {
-        self.label = { Text(text) }
+    ) {
+        self.label = { AnyView(Text(text)) }
+        self.child = nil
         self.accessory = accessory
-        self.child = { EmptyView() }
-        self.slideFontSize = slideFontSize
+        self.fontSize = slideFontSize
     }
 
     public init(
         accessory: ItemAccessory? = .bullet,
         slideFontSize: CGFloat = 48,
-        label: @escaping () -> Label
-    ) where ChildContent == EmptyView {
-        self.label = label
-        self.child = { EmptyView() }
+        label: @escaping () -> some View
+    ) {
+        self.label = { AnyView(label()) }
+        self.child = { AnyView(EmptyView()) }
         self.accessory = accessory
-        self.slideFontSize = slideFontSize
+        self.fontSize = slideFontSize
     }
 
     public var body: some View {
-        SlideVStack(alignment: .leading, spacing: 28) {
-            SlideHStack(alignment: .firstTextBaseline, spacing: slideFontSize * 0.5) {
-                Group {
-                    switch accessory {
-                    case .bullet:
-                        Circle()
-                            .slideFrame(width: slideFontSize * 20 / 48, height: slideFontSize * 20 / 48)
-                            .aspectRatio(1.0, contentMode: .fill)
-                            .slideOffset(y: -slideFontSize / 5)
-                    case .string(let text):
-                        Text("\(text).")
-                    case nil: EmptyView()
-                    }
-                }
-                .slideFontSize(slideFontSize)
-
-                label()
-                    .slideFontSize(slideFontSize)
-                    .fixedSize()
+        itemStyle.makeBody(configuration: .init(
+            accessory: accessory,
+            label: .init { label() },
+            fontSize: fontSize,
+            itemDepth: itemDepth,
+            child: .init {
+                child?()
             }
-
-            if let child = child {
-                child()
-                    .slidePadding(.leading, slideFontSize)
-            }
-        }
+        ))
     }
 }
-
