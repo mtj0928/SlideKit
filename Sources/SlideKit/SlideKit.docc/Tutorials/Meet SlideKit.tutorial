@@ -2,18 +2,16 @@
     @Intro(title: "Meet SlideKit") {
         SlideKit helps you make presentation slide by SwiftUI.
         Get started with SlideKit by making the demo presentation slide.
-<!--        TODO: Add image after all tutorials are mage.-->
-<!--        @Image(source: <#file#>, alt: "<#accessible description#>")-->
     }
 
     @Chapter(name: "SlideKit Essentials") {
         Learn how to set up a project for your presentation, make a slide, add the slide to the slide index.
 
-<!--        TODO: Add image after all tutorials are mage.-->
-<!--        @Image(source: <#file#>, alt: "<#accessible description#>")-->
+        @Image(source: "SlideKit Essentials.png", alt: "Examples of Some presentation slide")
         
         @TutorialReference(tutorial: "doc:Creating-Simple-Slide")
         @TutorialReference(tutorial: "doc:Scaling-Slide")
         @TutorialReference(tutorial: "doc:Dividing-Slide-Step-by-Step")
+        @TutorialReference(tutorial: "doc:Design-Your-Slide")
     }
 }
