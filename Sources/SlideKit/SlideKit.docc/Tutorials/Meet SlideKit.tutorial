@@ -7,11 +7,12 @@
     }
 
     @Chapter(name: "SlideKit Essentials") {
-        Learn how to set up a project for your presentation, make a simple slide, and add the slide to the slide index.
+        Learn how to set up a project for your presentation, make a slide, add the slide to the slide index.
 
 <!--        TODO: Add image after all tutorials are mage.-->
 <!--        @Image(source: <#file#>, alt: "<#accessible description#>")-->
         
         @TutorialReference(tutorial: "doc:Creating-Simple-Slide")
+        @TutorialReference(tutorial: "doc:Scaling-Slide")
     }
 }
