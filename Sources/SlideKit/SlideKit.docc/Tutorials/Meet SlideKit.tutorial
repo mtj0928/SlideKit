@@ -14,5 +14,6 @@
         
         @TutorialReference(tutorial: "doc:Creating-Simple-Slide")
         @TutorialReference(tutorial: "doc:Scaling-Slide")
+        @TutorialReference(tutorial: "doc:Dividing-Slide-Step-by-Step")
     }
 }

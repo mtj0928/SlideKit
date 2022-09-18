@@ -1,0 +1,54 @@
+@Tutorial(time: 10) {
+    @Intro(title: "Dividing Slide Step by Step") {
+        Sometimes, you will want to divide one slide to some sub-steps.
+        SlideKit supports such requirements.
+    }
+    
+    @Section(title: "Divide your slide by using PhasedState") {
+        @ContentAndMedia {
+            By defining `PhasedState` in your slide, you can divide the slide into sub-steps.
+        }
+        
+        @Steps {
+            @Step {
+                Add a new slide to *SlideKit Presentation* .
+                
+                @Code(name: "PhasedSlide.swift", file: "03-01-01-PhasedSlide.swift") { 
+                    @Image(source: "03-01-01-preview.png", alt: "A presentation slide which has a header text and some items.")
+                }
+            }
+            
+            @Step {
+                Define a new enum which confirms to `PhasedState`.
+                
+                @Code(name: "PhasedSlide.swift", file: "03-01-02-PhasedSlide.swift")
+            }
+            
+            @Step { 
+                Add a new property `phasedStateStore`.
+                The property has current phased state and the state is managed by SlideKit.
+                
+                @Code(name: "PhasedSlide.swift", file: "03-01-03-PhasedSlide.swift")
+            }
+            
+            @Step { 
+                Update the layout based on the current phased state.
+
+                @Code(name: "PhasedSlide.swift", file: "03-01-04-PhasedSlide.swift")
+            }
+            
+            @Step {
+                Open `SlideConfiguration.swift`.
+                
+                @Code(name: "SlideConfiguration.swift", file: "03-01-05-SlideConfiguration.swift")
+            }
+            
+            @Step { 
+                Finally, add the slide to `SlideIndexController` and run the app.
+                You can see `PhasedSlide` is divided to three steps by pressing return key.
+                
+                @Code(name: "SlideConfiguration.swift", file: "03-01-06-SlideConfiguration.swift")
+            }
+        }
+    }
+}
