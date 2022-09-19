@@ -26,6 +26,8 @@ And this it the result of the example.
 ![A screen shot of the result above sample code](IntroductionSlide.png)
 
 ## Topics
+### Essentials
+- <doc:/tutorials/Meet-SlideKit>
 
 ### Group
 
