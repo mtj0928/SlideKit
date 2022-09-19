@@ -13,13 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build docc
-        run: > 
-          swift package --allow-writing-to-directory ./docs generate-documentation 
-            --target SlideKit
-            --disable-indexing
-            --output-path ./docs
-            --transform-for-static-hosting
-            --hosting-base-path SlideKit
+        run: |
+          swift package --allow-writing-to-directory ./docs generate-documentation \
+          --target SlideKit \
+          --disable-indexing \
+          --output-path ./docs \
+          --transform-for-static-hosting \
+          --hosting-base-path SlideKit
       - uses: actions/upload-pages-artifact@v1
         with:
           path: docs
