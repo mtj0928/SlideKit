@@ -1,0 +1,34 @@
+name: Deploy DocC
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
+        with:
+          swift-version: "5.7.0"
+      - name: build docc
+        run: swift package --allow-writing-to
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: macos-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
