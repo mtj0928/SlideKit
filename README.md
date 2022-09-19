@@ -1,95 +1,49 @@
 # SlideKit
 
-SlideKit helps you make presentation slides on SwiftUI.
+SlideKit helps you make presentation slides on SwiftUI.  
+You can easily make presentation slides and customize the design perfectly because the all components are just SwiftUI's View.  
 
-## Set Up Project
-1. Please make a Xcode project by Mint.  
-(SlideGen is a command line tool which generates a template project for SlideKit.)
-```
-$ mint run mtj0928/SlideGen SamplePresentations -p macOS
-```
-
-2. Open the generated Xcode project.
-```
-$ open SamplePresentations/SamplePresentations.xcodeproj
-```
-
-3. Build and run the project.  
-If an error like `Couldn’t get revision ‘0.0.10^{commit}’:` occurs, do `File > Packages > Reset Package Caches` on Xcode.
+![Slides](https://user-images.githubusercontent.com/12427733/190956930-ea9ce4d0-0a19-4bb3-b43b-28dd2d73374a.png)
 
 
-## Usage
-### How to add your slide
-1. Define a new slide like this.
+## Document
+First, see the [Tutorial for SlideKit](https://mtj0928.github.io/SlideKit/tutorials/meet-slidekit).  
+You can learn how to use SlideKit and make presentation slides through making the sample presentation slides.
+
+If you want to know more details, refer the [DocC Style Document](https://mtj0928.github.io/SlideKit/documentation/slidekit/)
+
+## Features
+- [x] Support all SwiftUI Views🔥
+- [x] Provide `HeaderSlide`, it is a template slide which has a title.
+- [x] Support `HeaderSlideStyle`, so you can customize the design of the `HeaderSlide`.
+- [x] Provide some utility view components
+    - `Code`: Syntax Highlighted view (Only Swift is supported now.)
+    - `Item`: Itemization view. `Item` supports nested structures.
+- [x] Show the current slide index at bottom right on slide.
+- [x] Support two windows, presentation window and presenter window.
+- [x] Show scripts on only presenter window (only macOS)
+- [x] Provide `PhasedState`, so you can divide a one slide step by step.
+
+## Simple Example
+You can create a presentation by SwiftUI like this.
+
 ```swift
-import SlideKit
-import SwiftUI
-
-struct SimpleSlide: Slide {
+struct IntroductionSlide: Slide {
     var body: some View {
-        HeaderSlide("This is Simple Slide") {
-            Item("You can use Item!!")
-            Item("Nested item is supported.") {
-                Item("Enumerated item is also supported.", accessory: 1)
-                Item("2nd Item.", accessory: 2)
+        HeaderSlide("SlideKit") {
+            Item("SlideKit helps you make presentation slides by SwiftUI")
+            Item("The followings are provided") {
+                Item("Views")
+                Item("Structures")
+                Item("Utilities")
             }
         }
     }
 }
 ```
+And then, this is the result of the code.  
+<img width="1096" alt="IntroductionSlide" src="https://user-images.githubusercontent.com/12427733/190955403-ed64a5fd-eed0-4a4c-8684-75f39623a563.png">
 
-2. Preview your slide with `SlidePreview`.
-```swift
-struct SimpleSlide_Previews: PreviewProvider {
-    static var previews: some View {
-        SlidePreview {
-            SimpleSlide()
-        }
-    }
-}
-```
-<img width="616" alt="SimpleSlidePreview" src="https://user-images.githubusercontent.com/12427733/189527211-eafae837-d5a6-4ee7-b277-645d2b982e25.png">
-
-
-3. Finally, add the slide to `SlideIndexController` in `SamplePresentations.swift`. Run the project and you can see SimpleSlide!!
-```diff
-    /// Please add your slides into the trailing closure
-    let slideIndexController = SlideIndexController {
-        SampleSlide()
-+       SimpleSlide()        
-    }
-```
-
-### How to use `PhasedState`
-1. Please add an enum `SlidePhasedState` in your slide.
-```swift
-struct SimpleSlide: Slide {
-
-    enum SlidePhasedState: Int, PhasedState {
-        case initial, second, third
-    }
-
-    @Phase var phasedStateStore
-    // ...
-}
-```
-
-2. The `SlidePhasedState` represents sub-steps on one slide, and you can switch the layout based on the current phase.
-```swift
-struct SimpleSlide: Slide {
-    // ...
-    var body: some View {
-        HeaderSlide("This is Simple Slide") {
-            Item("You can use Item!!")
-            if phasedStateStore.after(.second) {
-                Item("Nested item is supported.") {
-                    Item("Enumerated item is also supported.", accessory: 1)
-                    if phasedStateStore.after(.third) {
-                        Item("2nd Item.", accessory: 2)
-                    }
-                }   
-            }
-        }
-    }
-}
-```
+## Presentations made with SlideKit
+If you make presentations slide with SlideKit, add it to the following litst!!
+- [After iOSDC](https://github.com/mtj0928/AfteriOSDC): A presentation which shares the hard points to make presentations slides by SwiftUI. (Japanese)
