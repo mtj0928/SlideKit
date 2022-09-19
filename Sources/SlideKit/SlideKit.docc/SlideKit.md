@@ -5,7 +5,7 @@ Make presentation slides by SwiftUI.
 ## Overview
 
 SlideKit provides views, structures, and utilities for making presentation slides with SwiftUI.
-You can create your presentation slides using a ``Slide`` protocol and index them by ``SlideIndexController``.
+You can create your presentation slides using a ``Slide`` protocol.
 
 You can make presentation slides like this.
 ```swift
@@ -26,10 +26,28 @@ And this is the result of the example.
 ![A screen shot of the result above sample code](IntroductionSlide.png)
 
 ## Topics
+
 ### Essentials
+
 - <doc:/tutorials/Meet-SlideKit>
+- ``Slide``
+- ``HeaderSlide``
 
-### Group
+### Slide View Components
 
+- ``Item``
+- ``Code``
+- ``SlideHStack``
+- ``SlideVStack`` 
 
+### Slide Index
+
+- ``SlideIndexController``
+- ``PhasedState``
+
+### Customize Slide Templates
+
+- ``HeaderSlideStyle``
+- ``ItemStyle`` 
+- ``SlideTheme``
 
