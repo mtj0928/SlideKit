@@ -12,9 +12,6 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_14.0.app/Contents/Developer
     steps:
       - uses: actions/checkout@v3
-      - uses: fwal/setup-swift@v1
-        with:
-          swift-version: "5.7.0"
       - name: build docc
         run: swift package --allow-writing-to-directory ./docs generate-documentation --target SlideKit --disable-indexing --output-path ./docs --transform-for-static-hosting --hosting-base-path SlideKit
       - uses: actions/upload-pages-artifact@v1
