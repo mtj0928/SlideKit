@@ -42,10 +42,10 @@ public protocol Slide: View {
 
     typealias Phase = PhaseWrapper<SlidePhasedState>
 
-    /// A store which controls current ``SlidePhasedState``.
+    /// A store which controls current `SlidePhasedState`.
     ///
-    /// You can get current ``SlidePhasedState`` and forward / back it.
-    /// > Note: The property must be defined with ``Phase`` like the bellow.
+    /// You can get current `SlidePhasedState` and forward / back it.
+    /// > Note: The property must be defined with `Phase` like the bellow.
     ///
     /// ```swift
     /// @Phase var phasedStateStore: PhasedStateStore<SlidePhasedState>
