@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Sources/SlideKit/SlideKit.docc/Resources/code-files/run-mint.sh">
-   </FileRef>
-   <FileRef
       location = "group:SlideKitDemo-iOS/SlideKitDemo-iOS.xcodeproj">
    </FileRef>
    <FileRef

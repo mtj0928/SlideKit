@@ -38,95 +38,27 @@ public struct macOSPresenterView<Content>: View where Content: View {
                     content()
                 }
                 .clipped()
-#if os(iOS)
-                .overlay {
-                    menuButton
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                        .padding()
-                }
-#endif
             }
-            HStack {
-                VStack(alignment: .leading) {
-                    scriptView
-                    stopwatch
-                }
-                HStack {
-                    backButton
-                    forwardButton
-                }
+            VStack(alignment: .leading) {
+                scriptView
+                stopwatch
             }
             .padding(.horizontal)
             .padding(.bottom)
             .frame(minHeight: 100)
         }
         .background(.black)
-#if os(macOS)
-        .overlay {
-            menuButton
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                .padding()
-        }
-#endif
-    }
-
-    private var menuButton: some View {
-        Menu {
-            backToFirstButton
-        } label: {
-            Image(systemName: "ellipsis.circle")
-                .resizable()
-                .scaledToFit()
-        }
-        .frame(width: 40, height: 40)
-    }
-
-    private var backToFirstButton: some View {
-        Button {
-            slideIndexController.backToFirst()
-        } label: {
-            Image(systemName: "arrowshape.turn.up.backward.2")
-            Text("Back to first")
-        }
     }
 
     private var scriptView: some View {
         ScrollView {
-            HStack(spacing: .zero) {
-                Text(slideIndexController.currentSlide.script)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(nil)
-                    .frame(minHeight: 100)
-                Spacer(minLength: .zero)
-            }
+            Text(slideIndexController.currentSlide.script)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.leading)
+                .lineLimit(nil)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
-    }
-
-    private var backButton: some View {
-        indexControlButton(systemName: "arrow.backward.circle.fill") {
-            slideIndexController.back()
-        }
-    }
-
-    private var forwardButton: some View {
-        indexControlButton(systemName: "arrow.forward.circle.fill") {
-            slideIndexController.forward()
-        }
-    }
-
-    private func indexControlButton(systemName: String, completion: @escaping () -> Void) -> some View {
-        Button {
-            completion()
-        } label: {
-            Image(systemName: systemName)
-                .resizable()
-                .scaledToFit()
-                .frame(height: 20)
-        }
-        .buttonStyle(.plain)
-        .foregroundColor(.white)
-        .frame(maxHeight: .infinity, alignment: .center)
+        .frame(minHeight: 100)
     }
 
     private var stopwatch: some View {
@@ -159,7 +91,7 @@ class Stopwatch: ObservableObject {
         cancellable = Timer.publish(every: 1, on: .main, in: .default)
             .autoconnect()
             .sink(receiveValue: { [weak self] _ in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.elapsedTime = Date().timeIntervalSince(self.startDate)
             })
     }
