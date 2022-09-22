@@ -12,6 +12,7 @@
 		04E2C08728B9155E0076F292 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E2C08628B9155E0076F292 /* Preview Assets.xcassets */; };
 		04E2C09028B915A60076F292 /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04E2C08F28B915A60076F292 /* SlideKit */; };
 		04E2C09328B9AA820076F292 /* BasicSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2C09228B9AA820076F292 /* BasicSlide.swift */; };
+		183D674328DBDE230097167F /* SlideConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D674228DBDE230097167F /* SlideConfiguration.swift */; };
 		18D33A2D28D54D250095156B /* CustomHeaderStyleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D33A2C28D54D250095156B /* CustomHeaderStyleSlide.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +23,7 @@
 		04E2C08628B9155E0076F292 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04E2C08828B9155E0076F292 /* SlideKitDemo_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlideKitDemo_macOS.entitlements; sourceTree = "<group>"; };
 		04E2C09228B9AA820076F292 /* BasicSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSlide.swift; sourceTree = "<group>"; };
+		183D674228DBDE230097167F /* SlideConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideConfiguration.swift; path = ../../../../../../Desktop/SlideConfiguration.swift; sourceTree = "<group>"; };
 		18C893BB28BE64B600A8054D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		18D33A2C28D54D250095156B /* CustomHeaderStyleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderStyleSlide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +62,7 @@
 			children = (
 				18C893BB28BE64B600A8054D /* Info.plist */,
 				04E2C07F28B9155D0076F292 /* SlideKitDemo_macOSApp.swift */,
+				183D674228DBDE230097167F /* SlideConfiguration.swift */,
 				04E2C09128B9AA770076F292 /* Slides */,
 				04E2C08328B9155E0076F292 /* Assets.xcassets */,
 				04E2C08828B9155E0076F292 /* SlideKitDemo_macOS.entitlements */,
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183D674328DBDE230097167F /* SlideConfiguration.swift in Sources */,
 				18D33A2D28D54D250095156B /* CustomHeaderStyleSlide.swift in Sources */,
 				04E2C09328B9AA820076F292 /* BasicSlide.swift in Sources */,
 				04E2C08028B9155D0076F292 /* SlideKitDemo_macOSApp.swift in Sources */,
