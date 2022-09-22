@@ -11,55 +11,32 @@ import SlideKit
 @main
 struct SlideKitDemo_macOSApp: App {
 
-    /// Please edit the default value to the size you want
-    let slideSize = SlideSize.standard16_9
+    /// Edit slide configurations in SlideConfiguration.swift
+    private static let configuration = SlideConfiguration()
 
-    /// Please add your slide into the trailing closure
-    let slideIndexController = SlideIndexController {
-        BasicSlide()
-        CustomHeaderStyleSlide()
+    /// A presentation content view.
+    /// Edit the view if you'd like to set environment, overlay view or background view here.
+    var presentationContentView: some View {
+        SlideRouterView(slideIndexController: Self.configuration.slideIndexController)
+            .background(.white)
     }
 
     var body: some Scene {
         WindowGroup {
-            PresentationView(slideSize: slideSize) {
-                SlideRouterView(slideIndexController: slideIndexController)
-                    .background(.white)
+            PresentationView(slideSize: Self.configuration.size) {
+                presentationContentView
             }
         }
-        .windowStyle(.hiddenTitleBar)
-        .commands {
-            CommandGroup(after: .undoRedo) {
-                forwardButton(.rightArrow)
-                forwardButton(.return)
-                backButton(.leftArrow)
-            }
-
-            CommandGroup(after: .windowList) {
-                Button("Open Presenter Window") { NSWorkspace.shared.open(URL(string: "slide://editor")!) }
-                    .keyboardShortcut("p", modifiers: .command)
-            }
-        }
+        .setupAsPresentationWindow(Self.configuration.slideIndexController, appName: "slide")
 
         WindowGroup {
-            macOSPresenterView(slideSize: slideSize, slideIndexController: slideIndexController) {
-                SlideRouterView(slideIndexController: slideIndexController)
-                    .background(.white)
+            macOSPresenterView(
+                slideSize: Self.configuration.size,
+                slideIndexController: Self.configuration.slideIndexController
+            ) {
+                presentationContentView
             }
         }
-        .handlesExternalEvents(matching: ["editor"])
-    }
-}
-
-extension SlideKitDemo_macOSApp {
-
-    private func forwardButton(_ key: KeyEquivalent) -> some View {
-        Button("forward") { slideIndexController.forward() }
-            .keyboardShortcut(key, modifiers: [])
-    }
-
-    private func backButton(_ key: KeyEquivalent) -> some View {
-        Button("back") { slideIndexController.back() }
-            .keyboardShortcut(key, modifiers: [])
+        .setupAsPresenterWindow()
     }
 }
