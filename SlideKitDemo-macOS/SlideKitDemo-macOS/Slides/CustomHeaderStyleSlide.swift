@@ -26,19 +26,19 @@ struct CustomHeaderStyleSlide: Slide {
 struct CustomHeaderStyle: HeaderSlideStyle {
 
     func makeBody(configuration: Configuration) -> some View {
-        SlideVStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             configuration.header
-                .slideFontSize(90)
+                .font(.system(size: 90))
                 .foregroundColor(.white)
-                .slidePadding()
+                .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background {
                     Color.accentColor
                 }
-            SlideVStack(alignment: .leading, spacing: 48) {
+            VStack(alignment: .leading, spacing: 48) {
                 configuration.content
             }
-            .slidePadding()
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
@@ -46,8 +46,8 @@ struct CustomHeaderStyle: HeaderSlideStyle {
 
 struct CustomItemStyle: ItemStyle {
     func makeBody(configuration: Configuration) -> some View {
-        SlideVStack(alignment: .leading, spacing: 28) {
-            SlideHStack(alignment: .firstTextBaseline, spacing: 10) {
+        VStack(alignment: .leading, spacing: 28) {
+            HStack(alignment: .firstTextBaseline, spacing: 10) {
                 Group {
                     switch configuration.accessory {
                     case .bullet:
@@ -62,16 +62,16 @@ struct CustomItemStyle: ItemStyle {
                     case nil: EmptyView()
                     }
                 }
-                .slideFontSize(configuration.fontSize)
+                .font(.system(size: configuration.fontSize))
 
                 configuration.label
-                    .slideFontSize(configuration.fontSize)
+                    .font(.system(size: configuration.fontSize))
                     .fixedSize()
             }
 
 
             if let child = configuration.child {
-                child.slidePadding(.leading, configuration.fontSize)
+                child.padding(.leading, configuration.fontSize)
             }
         }
     }
