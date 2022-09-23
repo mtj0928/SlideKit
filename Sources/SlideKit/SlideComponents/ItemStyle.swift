@@ -91,7 +91,7 @@ public struct DefaultItemStyle: ItemStyle {
 
                 configuration.label
                     .font(.system(size: configuration.fontSize))
-                    .fixedSize()
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
             if let child = configuration.child {
