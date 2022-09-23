@@ -10,21 +10,18 @@ import SwiftUI
 
 struct SlideCodeFormat: OutputFormat {
     let theme: Theme
-    let lineSpacing: CGFloat
 
     func makeBuilder() -> Builder {
-        SlideCodeFormat.Builder(theme: theme, lineSpacing: lineSpacing)
+        SlideCodeFormat.Builder(theme: theme)
     }
 }
 
 extension SlideCodeFormat {
     struct Builder: OutputBuilder {
         let theme: Theme
-        let lineSpacing: CGFloat
 
-        init(theme: Theme, lineSpacing: CGFloat) {
+        init(theme: Theme) {
             self.theme = theme
-            self.lineSpacing = lineSpacing
         }
 
         private lazy var regularFont = SwiftUI.Font.system(size: CGFloat(theme.font.size), weight: .regular, design: .monospaced)
@@ -57,13 +54,10 @@ extension SlideCodeFormat {
         }
 
         private mutating func append(_ string: String, font: SwiftUI.Font, color: Splash.Color) {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = lineSpacing
-
             var attributedString = AttributedString(string)
             attributedString.foregroundColor = Color(color)
             attributedString.font = font
-            attributedString.paragraphStyle = paragraphStyle
+
             self.string.append(attributedString)
         }
     }
