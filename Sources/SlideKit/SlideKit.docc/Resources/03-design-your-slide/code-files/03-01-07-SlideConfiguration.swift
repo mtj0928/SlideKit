@@ -10,6 +10,6 @@ struct SlideConfiguration {
     let slideIndexController = SlideIndexController {
         SampleSlide()
         IntroductionSlide()
-        SlideScaleSlide()
+        PhasedSlide()
     }
 }
