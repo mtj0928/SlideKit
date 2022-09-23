@@ -11,9 +11,6 @@ import SwiftUI
 
 public struct Code: View {
 
-    @Environment(\.slideScale)
-    var scale
-
     let code: String
     let colorTheme: CodeColorTheme
     let slideFontSize: CGFloat
@@ -32,13 +29,12 @@ public struct Code: View {
     }
 
     public var body: some View {
-        let fontSize = scale * slideFontSize
-        let theme = colorTheme.buildTheme(with: Font(size: fontSize))
+        let theme = colorTheme.buildTheme(with: Font(size: slideFontSize))
         let format = SlideCodeFormat(theme: theme)
         let highlighter = SyntaxHighlighter(format: format)
         let attributedString = highlighter.highlight(code)
         return Text(attributedString)
-            .slideLineSpace(lineSpacing)
+            .lineSpacing(lineSpacing)
     }
 }
 

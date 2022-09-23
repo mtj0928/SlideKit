@@ -81,23 +81,23 @@ struct AnyHeaderSlideStyle: HeaderSlideStyle {
 
 public struct DefaultHeaderSlideStyle: HeaderSlideStyle {
     public func makeBody(configuration: Configuration) -> some View {
-        SlideVStack(alignment: .leading, spacing: .zero) {
-            SlideVStack(alignment: .leading, spacing: 80) {
-                SlideHStack(spacing: 32) {
+        VStack(alignment: .leading, spacing: .zero) {
+            VStack(alignment: .leading, spacing: 80) {
+                HStack(spacing: 32) {
                     Capsule()
                         .foregroundColor(.accentColor)
-                        .slideFrame(width: 10, height: 120)
+                        .frame(width: 10, height: 120)
                     configuration.header
-                        .slideFontSize(90)
+                        .font(.system(size: 90))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                SlideVStack(alignment: .leading, spacing: 48) {
+                VStack(alignment: .leading, spacing: 48) {
                     configuration.content
-                        .slideFontSize(48)
+                        .font(.system(size: 48))
                 }
             }
             Spacer(minLength: 0)
         }
-        .slidePadding(60)
+        .padding(60)
     }
 }
