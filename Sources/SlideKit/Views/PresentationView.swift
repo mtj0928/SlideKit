@@ -33,10 +33,11 @@ public struct PresentationView<Content>: View where Content: View {
             SlideScreen(slideSize: slideSize) {
                 content()
             }
-            .clipped()
 #if os(macOS)
-            .aspectRatio(slideSize, contentMode: .fill)
+            .aspectRatio(slideSize, contentMode: .fit)
+            .clipped()
 #else
+            .clipped()
             .aspectRatio(slideSize, contentMode: .fit)
 #endif
 

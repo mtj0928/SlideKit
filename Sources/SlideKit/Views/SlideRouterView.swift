@@ -23,8 +23,8 @@ public struct SlideRouterView: View {
                 Text("\(slideIndexController.currentIndex)")
                     .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                    .slideFontSize(30)
-                    .slidePadding()
+                    .font(.system(size: 30))
+                    .padding()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

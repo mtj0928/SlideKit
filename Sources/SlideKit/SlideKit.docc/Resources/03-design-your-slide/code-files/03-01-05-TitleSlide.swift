@@ -3,16 +3,18 @@ import SwiftUI
 
 struct TitleSlide: Slide {
     var body: some View {
-        SlideVStack(alignment: .leading, spacing: 32) {
+        VStack(alignment: .leading, spacing: 32) {
             Text("SlideKit Presentations")
                 .fontWeight(.heavy)
-                .slideFontSize(120)
+                .font(.system(size: 120))
             Text("YOUR_NAME")
                 .fontWeight(.semibold)
-                .slideFontSize(48)
+                .font(.system(size: 48))
         }
-        .slidePadding()
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .foregroundColor(.white)
+        .background(Color.accentColor)
     }
 }
 

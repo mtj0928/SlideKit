@@ -19,13 +19,13 @@ struct TitleSlide: Slide {
     let title: String
 
     var body: some View {
-        SlideVStack {
+        VStack {
             Text(title)
             if phasedStateStore.when(.double) {
                 Text(title)
             }
         }
-        .slideFontSize(50)
+        .font(.system(size: 50))
     }
 }
 

@@ -16,7 +16,7 @@ struct BasicSlide: Slide {
                 Item("Piyo")
             }
             Item {
-                SlideHStack(spacing: 16) {
+                HStack {
                     Text("Hoge")
                     Circle()
                 }

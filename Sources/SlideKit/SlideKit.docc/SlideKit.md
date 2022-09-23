@@ -37,8 +37,6 @@ And this is the result of the example.
 
 - ``Item``
 - ``Code``
-- ``SlideHStack``
-- ``SlideVStack`` 
 
 ### Slide Index
 

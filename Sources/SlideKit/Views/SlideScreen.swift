@@ -20,9 +20,15 @@ public struct SlideScreen<Content>: View where Content: View {
     public var body: some View {
         GeometryReader { proxy in
             content()
-                .environment(\.screenSize, proxy.size)
+                .frame(width: slideSize.width, height: slideSize.height)
+                .scaleEffect(scale(for: proxy.size), anchor: .center)
+                .frame(width: proxy.size.width, height: proxy.size.height)
         }
-        .aspectRatio(slideSize.width / slideSize.height, contentMode: .fit)
-        .environment(\.slideSize, slideSize)
+    }
+
+    private func scale(for screenSize: CGSize) -> CGFloat {
+        let widthScale = screenSize.width / slideSize.width
+        let heightScale = screenSize.height / slideSize.height
+        return min(widthScale, heightScale)
     }
 }

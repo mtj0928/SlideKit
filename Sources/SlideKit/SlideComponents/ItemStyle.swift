@@ -71,15 +71,15 @@ struct AnyItemStyle: ItemStyle {
 
 public struct DefaultItemStyle: ItemStyle {
     public func makeBody(configuration: Configuration) -> some View {
-        SlideVStack(alignment: .leading, spacing: 28) {
-            SlideHStack(alignment: .firstTextBaseline, spacing: configuration.fontSize * 0.5) {
+        VStack(alignment: .leading, spacing: 28) {
+            HStack(alignment: .firstTextBaseline, spacing: configuration.fontSize * 0.5) {
                 Group {
                     switch configuration.accessory {
                     case .bullet:
                         Circle()
-                            .slideFrame(width: configuration.fontSize * 20 / 48, height: configuration.fontSize * 20 / 48)
+                            .frame(width: configuration.fontSize * 20 / 48, height: configuration.fontSize * 20 / 48)
                             .aspectRatio(1.0, contentMode: .fill)
-                            .slideOffset(y: -configuration.fontSize / 5)
+                            .offset(y: -configuration.fontSize / 5)
                     case .string(let text):
                         Text("\(text).")
                     case .number(let number):
@@ -87,15 +87,15 @@ public struct DefaultItemStyle: ItemStyle {
                     case nil: EmptyView()
                     }
                 }
-                .slideFontSize(configuration.fontSize)
+                .font(.system(size: configuration.fontSize))
 
                 configuration.label
-                    .slideFontSize(configuration.fontSize)
+                    .font(.system(size: configuration.fontSize))
                     .fixedSize()
             }
 
             if let child = configuration.child {
-                child.slidePadding(.leading, configuration.fontSize)
+                child.padding(.leading, configuration.fontSize)
             }
         }
     }

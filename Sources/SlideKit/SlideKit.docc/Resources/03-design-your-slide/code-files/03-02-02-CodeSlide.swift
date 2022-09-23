@@ -6,7 +6,7 @@ struct CodeSlide: Slide {
     var body: some View {
         HeaderSlide("Code Slide") {
             Text("Syntax Highlight is supported.")
-            Code(code, slideFontSize: 32)
+            Code(code, fontSize: 32)
         }
     }
 }
@@ -17,7 +17,7 @@ struct CodeSlide: Slide {
     var body: some View {
         HeaderSlide("Code Slide") {
             Text("Syntax Highlight is supported.")
-            Code(code, slideFontSize: 32)
+            Code(code, fontSize: 32)
         }
     }
 }
