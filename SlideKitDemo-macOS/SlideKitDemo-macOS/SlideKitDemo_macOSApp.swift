@@ -18,6 +18,7 @@ struct SlideKitDemo_macOSApp: App {
     /// Edit the view if you'd like to set environment, overlay view or background view here.
     var presentationContentView: some View {
         SlideRouterView(slideIndexController: Self.configuration.slideIndexController)
+            .slideTheme(Self.configuration.theme)
             .background(.white)
     }
 
