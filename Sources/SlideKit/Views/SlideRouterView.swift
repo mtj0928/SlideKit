@@ -20,11 +20,7 @@ public struct SlideRouterView: View {
             AnyView(slideIndexController.currentSlide)
 
             if !slideIndexController.currentSlide.shouldHideIndex {
-                Text("\(slideIndexController.currentIndex)")
-                    .foregroundColor(.gray)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                    .font(.system(size: 30))
-                    .padding()
+                Index(slideIndexController: slideIndexController)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

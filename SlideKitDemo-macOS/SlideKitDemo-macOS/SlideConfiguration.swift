@@ -17,4 +17,22 @@ struct SlideConfiguration {
         BasicSlide()
         CustomHeaderStyleSlide()
     }
+
+    let theme: some SlideTheme = CustomSlideTheme()
+}
+
+struct CustomSlideTheme: SlideTheme {
+    let headerSlideStyle: some HeaderSlideStyle = .default
+    let itemStyle: some ItemStyle = .default
+    let indexStyle : some IndexStyle = CustomIndexStyle()
+}
+
+struct CustomIndexStyle: IndexStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Text("\(configuration.slideIndexController.currentIndex + 1) / \(configuration.slideIndexController.slides.count)")
+            .foregroundColor(.gray)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+            .font(.system(size: 30))
+            .padding()
+    }
 }
