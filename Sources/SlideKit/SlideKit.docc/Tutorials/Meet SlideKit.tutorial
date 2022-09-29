@@ -7,7 +7,7 @@
     @Chapter(name: "SlideKit Essentials") {
         Learn how to set up a project for your presentation, make a slide, add the slide to the slide index.
 
-        @Image(source: "SlideKit Essentials.png", alt: "Examples of Some presentation slide")
+        @Image(source: "SlideKit_Essentials.png", alt: "Examples of Some presentation slide")
         
         @TutorialReference(tutorial: "doc:Creating-Simple-Slide")
         @TutorialReference(tutorial: "doc:Dividing-Slide-Step-by-Step")
