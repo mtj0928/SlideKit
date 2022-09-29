@@ -13,4 +13,9 @@
         @TutorialReference(tutorial: "doc:Dividing-Slide-Step-by-Step")
         @TutorialReference(tutorial: "doc:Design-Your-Slide")
     }
+    
+    @Chapter(name: "Customize Slide Theme") {
+        SlideKit prepares a simple slide theme, but you may want to customize the prepared design.
+        Learn how to customize your slide theme.
+    }
 }
