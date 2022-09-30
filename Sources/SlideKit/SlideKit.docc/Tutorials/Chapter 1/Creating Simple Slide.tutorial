@@ -13,7 +13,7 @@
         @Steps {
             @Step {
                 Making a new Xcode project by running SlideGen via Mint  
-                @Code(name: "generate-project.sh", file: "run-mint.sh")
+                @Code(name: "generate-project.sh", file: "01-run-mint.sh")
             }
             
             @Step {
@@ -28,7 +28,7 @@
             @Step { 
                 You can see the sample presentation slide.
                 
-                @Image(source: "01-01-04-sample-slide.png", alt: "A presentation slide which has one header and some items. The text of the header is \"How to use the slide\". The items are showing that you can move the next slide by tapping the right half of this window or pressing \"→\" or return.")
+                @Image(source: "01-01-01-04-sample-slide.png", alt: "A presentation slide which has one header and some items. The text of the header is \"How to use the slide\". The items are showing that you can move the next slide by tapping the right half of this window or pressing \"→\" or return.")
             }
         }
     }
@@ -41,45 +41,45 @@
         @Steps {
             @Step {
                 Make a new SwiftUI view, `IntroductionSlide.swift`.
-                @Code(name: "IntroductionSlide.swift", file: "01-02-01-IntroductionSlide.swift")
+                @Code(name: "IntroductionSlide.swift", file: "01-01-02-01-IntroductionSlide.swift")
             }
             
             @Step {
                 Import SlideKit.
-                @Code(name: "IntroductionSlide.swift", file: "01-02-02-IntroductionSlide.swift")
+                @Code(name: "IntroductionSlide.swift", file: "01-01-02-02-IntroductionSlide.swift")
             }
             
             @Step {
                 Change the conforming protocol to `Slide` from `View`.
-                @Code(name: "IntroductionSlide.swift", file: "01-02-03-IntroductionSlide.swift")
+                @Code(name: "IntroductionSlide.swift", file: "01-01-02-03-IntroductionSlide.swift")
             }
             
             @Step {
                 Add `SlidePreview` to `previews` to preview the slide on Xcode Preview.
-                @Code(name: "IntroductionSlide.swift", file: "01-02-04-IntroductionSlide.swift") { 
-                    @Image(source: "01-02-04-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview show only text, \"Hello, World\".")
+                @Code(name: "IntroductionSlide.swift", file: "01-01-02-04-IntroductionSlide.swift") { 
+                    @Image(source: "01-01-02-04-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview show only text, \"Hello, World\".")
                 }
             }
 
             @Step {
                 Add `HeaderSlide` and the tile.
-                @Code(name: "IntroductionSlide.swift", file: "01-02-05-IntroductionSlide.swift") { 
-                    @Image(source: "01-02-05-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview shows a presentation slide which has a header text. The text is \"SlideKit\".")
+                @Code(name: "IntroductionSlide.swift", file: "01-01-02-05-IntroductionSlide.swift") { 
+                    @Image(source: "01-01-02-05-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview shows a presentation slide which has a header text. The text is \"SlideKit\".")
                 }
             }
             
             @Step {
                 Add two items into the trailing closure of `HeaderSlide`.
-                @Code(name: "IntroductionSlide.swift", file: "01-02-06-IntroductionSlide.swift") { 
-                    @Image(source: "01-02-06-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview shows a presentation slide which has a header text and two items. The header text is \"SlideKit\". The two items show what SlideKit is.")
+                @Code(name: "IntroductionSlide.swift", file: "01-01-02-06-IntroductionSlide.swift") { 
+                    @Image(source: "01-01-02-06-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview shows a presentation slide which has a header text and two items. The header text is \"SlideKit\". The two items show what SlideKit is.")
                 }
             }
             
             @Step {
                 `Item` supports nested items.
                 Add three items into the item which was added at the previous step.
-                @Code(name: "IntroductionSlide.swift", file: "01-02-07-IntroductionSlide.swift") { 
-                    @Image(source: "01-02-07-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview shows a presentation slide which has a header text and two items. The header text is \"SlideKit\". The two items show what SlideKit is. And one of the item has nested items which show features of SlideKit.")
+                @Code(name: "IntroductionSlide.swift", file: "01-01-02-07-IntroductionSlide.swift") { 
+                    @Image(source: "01-01-02-07-preview.png", alt: "A screenshot which show the result of Xcode preview. The preview shows a presentation slide which has a header text and two items. The header text is \"SlideKit\". The two items show what SlideKit is. And one of the item has nested items which show features of SlideKit.")
                 }
             }
         }
@@ -92,13 +92,13 @@
         @Steps {   
             @Step { 
                 Open `SlideConfiguration.swift`  which was generated by SwiftGen.
-                @Code(name: "SlideConfiguration.swift", file: "01-03-01-SlideConfiguration.swift")
+                @Code(name: "SlideConfiguration.swift", file: "01-01-03-01-SlideConfiguration.swift")
             }
                 
             @Step { 
                 Add `IntroductionSlide` to the trailing closure of `SlideIndexController`.
                 
-                @Code(name: "SlideConfiguration.swift", file: "01-03-02-SlideConfiguration.swift")
+                @Code(name: "SlideConfiguration.swift", file: "01-01-03-02-SlideConfiguration.swift")
             }
                 
             @Step { 
@@ -108,13 +108,13 @@
             @Step { 
                 You can see the slide which shows how to use the slide.
                         
-                @Image(source: "01-01-04-sample-slide.png", alt: "A presentation slide which has one header and some items. The text of the header is \"How to use the slide\". The items are showing that you can move the next slide by tapping the right half of this window or pressing \"→\" or return.")
+                @Image(source: "01-01-01-04-sample-slide.png", alt: "A presentation slide which has one header and some items. The text of the header is \"How to use the slide\". The items are showing that you can move the next slide by tapping the right half of this window or pressing \"→\" or return.")
             }
                     
             @Step {
                 By pressing return key two times, you can see the slide which shows what SlideKit is.
                     
-                @Image(source: "01-03-05-slide", alt: "A presentation slide which has one header and some items. The text of the header is \"SlideKit\". The items are showing what SlideKit is.")
+                @Image(source: "01-01-03-05-slide", alt: "A presentation slide which has one header and some items. The text of the header is \"SlideKit\". The items are showing what SlideKit is.")
             }
         }
     }
