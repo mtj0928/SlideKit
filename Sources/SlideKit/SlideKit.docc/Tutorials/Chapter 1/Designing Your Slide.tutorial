@@ -1,9 +1,9 @@
 @Tutorial(time: 20) {
-    @Intro(title: "Design Your Slide") {
+    @Intro(title: "Designing Your Slide") {
         In this tutorial, learn design your slides by SlideKit utilities.
     }
     
-    @Section(title: "Design Title Slide") {
+    @Section(title: "Designing Title Slide") {
         @ContentAndMedia {
             We skipped to create a title slide, because we don't have enough knowledge to do so.
             However, we already learned basic knowledge, so let's create title slide.

@@ -11,7 +11,7 @@
         
         @TutorialReference(tutorial: "doc:Creating-Simple-Slide")
         @TutorialReference(tutorial: "doc:Dividing-Slide-Step-by-Step")
-        @TutorialReference(tutorial: "doc:Design-Your-Slide")
+        @TutorialReference(tutorial: "doc:Designing-Your-Slide")
     }
     
     @Chapter(name: "Customize Slide Theme") {
