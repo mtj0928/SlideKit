@@ -17,6 +17,24 @@ public protocol SlideTheme {
     var indexStyle: IndexStyle { get }
 }
 
+extension SlideTheme where HeaderSlideStyle == DefaultHeaderSlideStyle {
+    public var headerSlideStyle: DefaultHeaderSlideStyle {
+        DefaultHeaderSlideStyle()
+    }
+}
+
+extension SlideTheme where ItemStyle == DefaultItemStyle {
+    public var itemStyle: DefaultItemStyle {
+        DefaultItemStyle()
+    }
+}
+
+extension SlideTheme where IndexStyle == DefaultIndexStyle {
+    public var indexStyle: DefaultIndexStyle {
+        DefaultIndexStyle()
+    }
+}
+
 public struct DefaultSlideTheme: SlideTheme {
     public let headerSlideStyle = DefaultHeaderSlideStyle()
     public let itemStyle = DefaultItemStyle()

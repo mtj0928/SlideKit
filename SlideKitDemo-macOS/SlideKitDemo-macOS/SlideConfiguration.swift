@@ -18,13 +18,11 @@ struct SlideConfiguration {
         CustomHeaderStyleSlide()
     }
 
-    let theme: some SlideTheme = CustomSlideTheme()
+    let theme = CustomSlideTheme()
 }
 
 struct CustomSlideTheme: SlideTheme {
-    let headerSlideStyle: some HeaderSlideStyle = .default
-    let itemStyle: some ItemStyle = .default
-    let indexStyle : some IndexStyle = CustomIndexStyle()
+    let indexStyle = CustomIndexStyle()
 }
 
 struct CustomIndexStyle: IndexStyle {
