@@ -3,7 +3,7 @@
         In this tutorial, learn how to use SwiftUI's views and other views provided by SlideKit.
     }
     
-    @Section(title: "Using SwiftUI's Views") {
+    @Section(title: "Use SwiftUI's Views") {
         @ContentAndMedia {
             SwiftUI's Views are also available on SlideKit.
             Learn how to use them through making a title slide in this section.

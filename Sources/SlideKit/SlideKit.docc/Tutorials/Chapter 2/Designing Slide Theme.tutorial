@@ -1,0 +1,48 @@
+@Tutorial(time: 30) {
+    @Intro(title: "Designing Slide Theme") {
+        SlideKit provides some Views like `HeaderSlide` and `Item`.
+        The design is simple, but you may change the design.
+        Learn the way how to change the predefined design through this tutorial.
+    }
+    
+    @Section(title: "Customize HeaderSlide") {
+        @ContentAndMedia {
+            `HeaderSlide`'s design can be changed by using `HeaderSlideStyle`.
+            In this section, learn the way how to use it.
+        }
+        
+        @Steps {
+            @Step {
+                Add a simple slide which has `HeaderSlide`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-01-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-01-01-preview.png", alt: "A screenshot which show the result of Xcode preview. In the preview, there is a slide which has one title and one item.")
+                }
+            }
+            
+            @Step {
+                Add `CustomHeaderSlideStyle` and let it conform `HeaderSlideStyle`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-02-CustomizedSlide.swift")
+            }
+            
+            @Step { 
+                Embed `CustomHeaderSlideStyle` into your slide by `headerSlideStyle`.
+                
+                `HeaderSlide`'s design can be customized by `CustomHeaderSlideStyle`'s `makeBody`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-03-CustomizedSlide.swift") {
+                    @Image(source: "02-01-01-03-preview.png", alt: "A screenshot which show the result of Xcode preview. The design is not the same with the previous slide.")
+                }
+            }
+            
+            @Step { 
+                Arrange the design by modifying `makeBody`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-04-CustomizedSlide.swift") {
+                    @Image(source: "02-01-01-04-preview.png", alt: "A screenshot which show the result of Xcode preview. The design is not the same with the previous slide.")
+                }
+            }
+        }
+    }
+}
