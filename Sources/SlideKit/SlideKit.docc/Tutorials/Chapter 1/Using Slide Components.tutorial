@@ -1,12 +1,12 @@
 @Tutorial(time: 20) {
-    @Intro(title: "Designing Your Slide") {
-        In this tutorial, learn design your slides by SlideKit utilities.
+    @Intro(title: "Using Slide Components") {
+        In this tutorial, learn how to use SwiftUI's views and other views provided by SlideKit.
     }
     
-    @Section(title: "Designing Title Slide") {
+    @Section(title: "Using SwiftUI's Views") {
         @ContentAndMedia {
-            We skipped to create a title slide, because we don't have enough knowledge to do so.
-            However, we already learned basic knowledge, so let's create title slide.
+            SwiftUI's Views are also available on SlideKit.
+            Learn how to use them through making a title slide in this section.
         }
         
         @Steps {
@@ -19,7 +19,7 @@
             }
             
             @Step {
-                Add a title and your name with `SlideVStack`
+                Add a title and your name with `VStack`
                 
                 @Code(name: "TitleSlide.swift", file: "01-03-01-02-TitleSlide.swift") {                 
                     @Image(source: "01-03-01-02-preview.png", alt: "A presentation slide which has title and presenter name.")
@@ -74,7 +74,7 @@
     }
     @Section(title: "Add Code Slide") {
         @ContentAndMedia {
-            SlideKit supports syntax highlighted code.
+            SlideKit also provide `Code` which is a view supporting syntax highlight.
         }
             
         @Steps {
