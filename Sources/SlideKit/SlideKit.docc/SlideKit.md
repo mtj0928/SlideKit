@@ -7,6 +7,9 @@ Make presentation slides by SwiftUI.
 SlideKit provides views, structures, and utilities for making presentation slides with SwiftUI.
 You can create your presentation slides using a ``Slide`` protocol.
 
+
+![Three example slides](SlideKit_Essentials.png)
+
 You can make presentation slides like this.
 ```swift
 struct IntroductionSlide: Slide {

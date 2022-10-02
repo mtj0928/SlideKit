@@ -1,0 +1,177 @@
+@Tutorial(time: 30) {
+    @Intro(title: "Designing Slide Theme") {
+        SlideKit provides some Views like `HeaderSlide` and `Item`.
+        The design is simple, but you may change the design.
+        Learn the way how to change the predefined design through this tutorial.
+    }
+    
+    @Section(title: "Customize HeaderSlide") {
+        @ContentAndMedia {
+            `HeaderSlide`'s design can be changed by using `HeaderSlideStyle`.
+            In this section, learn the way how to use it.
+        }
+        
+        @Steps {
+            @Step {
+                Add a simple slide which has `HeaderSlide`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-01-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-01-01-preview.png", alt: "A screenshot which show the result of Xcode preview. In the preview, there is a slide which has one title and one item.")
+                }
+            }
+            
+            @Step {
+                Add `CustomHeaderSlideStyle` and let it conform `HeaderSlideStyle`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-02-CustomizedSlide.swift")
+            }
+            
+            @Step { 
+                Embed `CustomHeaderSlideStyle` into your slide by `headerSlideStyle`.
+                
+                `HeaderSlide`'s design can be customized by `CustomHeaderSlideStyle`'s `makeBody`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-03-CustomizedSlide.swift") {
+                    @Image(source: "02-01-01-03-preview.png", alt: "A screenshot which show the result of Xcode preview. The design is not the same with the previous slide.")
+                }
+            }
+            
+            @Step { 
+                Arrange the design by modifying `makeBody`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-04-CustomizedSlide.swift") {
+                    @Image(source: "02-01-01-04-preview.png", alt: "A screenshot which show the result of Xcode preview. The design is not the same with the previous slide.")
+                }
+            }
+        }
+    }
+    
+    @Section(title: "Customize Item") {
+        @ContentAndMedia {
+            `Item`'s design can be changed by using `ItemStyle`.
+            In this section, learn the way how to use it.
+        }
+            
+        @Steps {
+            @Step {
+                Open `CustomizedSlide.swift`.
+                @Code(name: "CustomizedSlide.swift", file: "02-01-01-04-CustomizedSlide.swift")
+            }
+            @Step {
+                Add items to `CustomizedSlide`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-02-01-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-02-01-preview.png", alt: "A screenshot which show the result of Xcode preview. Some items are added.")
+                }
+            }
+            
+            @Step {
+                Add `CustomItemStyle` and let it conform `ItemStyle`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-02-02-CustomizedSlide.swift")
+            }
+
+            @Step {
+                Embed `CustomItemStyle` into your slide by `itemStyle`.
+
+                @Code(name: "CustomizedSlide.swift", file: "02-01-02-03-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-02-03-preview.png", alt: "A screenshot which show the result of Xcode preview. The design is not the same with the previous slide.")
+                }
+            }
+
+            @Step { 
+                Adjust the indent.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-02-04-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-02-04-preview.png", alt: "A screenshot which show the result of Xcode preview. The indent is adjusted.")
+                }
+            }
+            
+            @Step { 
+                Adjust the space between `label` and `child`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-02-05-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-02-05-preview.png", alt: "A screenshot which show the result of Xcode preview. The space between label and child is adjusted.")
+                }
+            }
+            
+            @Step { 
+                Handle item accessory.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-02-06-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-02-06-preview.png", alt: "A screenshot which show the result of Xcode preview. The item accessories are added.")
+                }
+            }
+        }
+    }
+        
+    @Section(title: "Customize Index") {
+        @ContentAndMedia {
+            SlideKit supports to show current index on a slide.
+            The default index view is shown at left bottom and the text color is gray.
+            The view can be also customized by `IndexStyle`.
+            In this section, learn the way how to use it.
+        }
+            
+        @Steps {
+            @Step { 
+                Open `CustomizedSlide.swift`.
+                @Code(name: "CustomizedSlide.swift", file: "02-01-02-06-CustomizedSlide.swift")
+            }
+            @Step {
+                Add `CustomIndexStyle`, let it make `IndexStyle` and embed it with `indexStyle`.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-03-02-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-03-02-preview.png", alt: "A screenshot which show the result of Xcode preview. Slide index is added.")
+                }
+            }
+            @Step {
+                Adjust the design.
+                
+                @Code(name: "CustomizedSlide.swift", file: "02-01-03-03-CustomizedSlide.swift") { 
+                    @Image(source: "02-01-03-03-preview.png", alt: "A screenshot which show the result of Xcode preview. The index text's design is adjusted.")
+                }
+            }
+        }
+    }
+
+        
+    @Section(title: "Apply SlideTheme to All Slides") {
+        @ContentAndMedia {
+            By using `SlideTheme`, you can apply the theme to all slides.
+        }
+            
+        @Steps {
+            @Step { 
+                Open `SlideConfiguration.swift`.
+                @Code(name: "SlideConfiguration.swift", file: "02-01-04-01-SlideConfiguration.swift")
+            }
+            
+            @Step {
+                Add `CustomSlideTheme`, and let it confirm `SlideTheme`.
+                @Code(name: "SlideConfiguration.swift", file: "02-01-04-02-SlideConfiguration.swift")
+            }
+            
+            @Step {
+                Add created styles to the theme.
+                @Code(name: "SlideConfiguration.swift", file: "02-01-04-03-SlideConfiguration.swift")
+            }
+            
+            @Step {
+                Open `SlideKitPresentationApp.swift`.
+                @Code(name: "SlideKitPresentationApp.swift", file: "02-01-04-04-SlideKitPresentationApp.swift")
+            }
+            
+            @Step {
+                Apply the theme to `presentationContentView`.
+                @Code(name: "SlideKitPresentationApp.swift", file: "02-01-04-05-SlideKitPresentationApp.swift")
+            }
+            
+            @Step {
+                The theme is applied to the all slides.
+                
+                @Image(source: "02-01-04-06-slidekit.png", alt: "A screenshot which the theme is applied to.")
+            }
+        }
+    }
+}
