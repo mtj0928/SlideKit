@@ -5,8 +5,12 @@ struct CustomizedSlide: Slide {
     var body: some View {
         HeaderSlide("Customize Slide Theme") {
             Item("HeaderSlide supports HeaderSlideStyle.")
+            Item("Item supports ItemStyle") {
+                Item("Nested Item can be customized.")
+            }
         }
         .headerSlideStyle(CustomHeaderSlideStyle())
+        .itemStyle(CustomItemStyle())
     }
 }
 
@@ -25,6 +29,16 @@ struct CustomHeaderSlideStyle: HeaderSlideStyle {
         }
         .padding(.horizontal, 48)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+}
+
+struct CustomItemStyle: ItemStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading, spacing: 45) {
+            configuration.label
+            configuration.child
+                .padding(.leading, 90)
+        }
     }
 }
 
