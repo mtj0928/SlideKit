@@ -7,7 +7,7 @@
     @Chapter(name: "SlideKit Essentials") {
         Learn how to set up a project for your presentation, make a slide, add the slide to the slide index.
 
-        @Image(source: "SlideKit_Essentials.png", alt: "Examples of Some presentation slide")
+        @Image(source: "SlideKit_Essentials.png", alt: "Examples of Some presentation slides")
         
         @TutorialReference(tutorial: "doc:Creating-Simple-Slide")
         @TutorialReference(tutorial: "doc:Dividing-Slide-Step-by-Step")
@@ -17,6 +17,8 @@
     @Chapter(name: "Slide Theme") {
         SlideKit prepares a simple slide theme, but you may want to customize the prepared theme.
         Learn how to customize the slide theme in this chapter.
+        
+        @Image(source: "Chapter2_image.png", alt: "Examples of some slides whose theme is different from previous one.")
         
         @TutorialReference(tutorial: "doc:Designing-Slide-Theme")
     }
