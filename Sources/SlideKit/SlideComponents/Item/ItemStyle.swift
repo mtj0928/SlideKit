@@ -42,14 +42,12 @@ public struct ItemConfiguration {
 
     public var accessory: ItemAccessory?
     public var label: ItemConfiguration.Label
-    public var fontSize: CGFloat
     public var itemDepth: Int
     public var child: Child?
 
-    init(accessory: ItemAccessory? = nil, label: ItemConfiguration.Label, fontSize: CGFloat, itemDepth: Int, child: Child? = nil) {
+    init(accessory: ItemAccessory? = nil, label: ItemConfiguration.Label, itemDepth: Int, child: Child? = nil) {
         self.accessory = accessory
         self.label = label
-        self.fontSize = fontSize
         self.itemDepth = itemDepth
         self.child = child
     }
@@ -70,16 +68,19 @@ struct AnyItemStyle: ItemStyle {
 }
 
 public struct DefaultItemStyle: ItemStyle {
+
+    var fontSize: CGFloat = 48
+
     public func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading, spacing: 28) {
-            HStack(alignment: .firstTextBaseline, spacing: configuration.fontSize * 0.5) {
+            HStack(alignment: .firstTextBaseline, spacing: fontSize * 0.5) {
                 Group {
                     switch configuration.accessory {
                     case .bullet:
                         Circle()
-                            .frame(width: configuration.fontSize * 20 / 48, height: configuration.fontSize * 20 / 48)
+                            .frame(width: fontSize * 20 / 48, height: fontSize * 20 / 48)
                             .aspectRatio(1.0, contentMode: .fill)
-                            .offset(y: -configuration.fontSize / 5)
+                            .offset(y: -fontSize / 5)
                     case .string(let text):
                         Text("\(text).")
                     case .number(let number):
@@ -87,15 +88,15 @@ public struct DefaultItemStyle: ItemStyle {
                     case nil: EmptyView()
                     }
                 }
-                .font(.system(size: configuration.fontSize))
+                .font(.system(size: fontSize))
 
                 configuration.label
-                    .font(.system(size: configuration.fontSize))
+                    .font(.system(size: fontSize))
                     .fixedSize(horizontal: false, vertical: true)
             }
 
             if let child = configuration.child {
-                child.padding(.leading, configuration.fontSize)
+                child.padding(.leading, fontSize)
             }
         }
     }
