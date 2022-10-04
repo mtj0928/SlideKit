@@ -35,60 +35,50 @@ public struct Item: View {
 
     private let accessory: ItemAccessory?
     private let label: () -> AnyView
-    private let fontSize: CGFloat
     private let child: (() -> AnyView)?
 
     public init(
         _ text: LocalizedStringKey,
-        fontSize: CGFloat = 48,
         accessory: ItemAccessory? = .bullet,
         @ViewBuilder child: @escaping () -> some View
     ) {
         self.label = { AnyView(Text(text)) }
         self.child = { AnyView(child()) }
         self.accessory = accessory
-        self.fontSize = fontSize
     }
 
     public init(
         accessory: ItemAccessory? = .bullet,
-        fontSize: CGFloat = 48,
         label: @escaping () -> some View,
         @ViewBuilder child: @escaping () -> some View
     ) {
         self.label = { AnyView(label()) }
         self.child = { AnyView(child()) }
         self.accessory = accessory
-        self.fontSize = fontSize
     }
 
     public init(
         _ text: String,
-        fontSize: CGFloat = 48,
         accessory: ItemAccessory? = .bullet
     ) {
         self.label = { AnyView(Text(text)) }
         self.child = nil
         self.accessory = accessory
-        self.fontSize = fontSize
     }
 
     public init(
         accessory: ItemAccessory? = .bullet,
-        fontSize: CGFloat = 48,
         label: @escaping () -> some View
     ) {
         self.label = { AnyView(label()) }
         self.child = { AnyView(EmptyView()) }
         self.accessory = accessory
-        self.fontSize = fontSize
     }
 
     public var body: some View {
         itemStyle.makeBody(configuration: .init(
             accessory: accessory,
             label: .init { label() },
-            fontSize: fontSize,
             itemDepth: itemDepth,
             child: .init {
                 child?()
