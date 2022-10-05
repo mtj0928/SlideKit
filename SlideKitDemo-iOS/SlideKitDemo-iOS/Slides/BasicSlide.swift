@@ -19,6 +19,7 @@ struct BasicSlide: Slide {
                 HStack {
                     Text("Hoge")
                     Circle()
+                        .frame(width: 50, height: 50)
                 }
             } child: {
                 Item("AAA")

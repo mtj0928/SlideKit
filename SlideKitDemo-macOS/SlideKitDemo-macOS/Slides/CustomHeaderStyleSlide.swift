@@ -37,6 +37,7 @@ struct CustomHeaderStyle: HeaderSlideStyle {
                 }
             VStack(alignment: .leading, spacing: 48) {
                 configuration.content
+                    .font(.system(size: 48))
             }
             .padding()
         }
@@ -62,16 +63,14 @@ struct CustomItemStyle: ItemStyle {
                     case nil: EmptyView()
                     }
                 }
-                .font(.system(size: configuration.fontSize))
 
                 configuration.label
-                    .font(.system(size: configuration.fontSize))
                     .fixedSize()
             }
 
 
             if let child = configuration.child {
-                child.padding(.leading, configuration.fontSize)
+                child.padding(.leading)
             }
         }
     }

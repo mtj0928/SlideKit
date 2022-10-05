@@ -29,7 +29,6 @@ public struct SlideRouterView: View {
             forward: { slideIndexController.forward() }
         )
         .environment(\.slideIndexController, slideIndexController)
-        .foregroundColor(.black)
     }
 }
 

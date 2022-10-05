@@ -20,16 +20,13 @@ final class SceneDelegate: NSObject, SlideWindowSceneDelegate {
 
     var window: UIWindow?
 
+    var content: some View {
+        SlideRouterView(slideIndexController: Self.slideIndexController)
+            .background(.white)
+            .foregroundColor(.black)
+    }
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        if session.role == .externalDisplay && Self.externalDisplayManager.externalDisplayMode == .mirroring {
-            return
-        }
-
-        self.window = makeRootWindow(
-            windowScene: windowScene,
-            slidePresentationMode: session.role == .externalDisplay ? .presentation : .presenter
-        )
+        setup(scene, willConnectTo: session, options: connectionOptions)
     }
 }
