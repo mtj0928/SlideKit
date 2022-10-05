@@ -42,7 +42,6 @@ public struct PresentationView<Content>: View where Content: View {
 #endif
 
         }
-        .preferredColorScheme(.light)
         .ignoresSafeArea()
 #if os(macOS)
         .configureWindow { window in

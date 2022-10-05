@@ -19,6 +19,7 @@ struct SlideKitDemo_macOSApp: App {
     var presentationContentView: some View {
         SlideRouterView(slideIndexController: Self.configuration.slideIndexController)
             .slideTheme(Self.configuration.theme)
+            .foregroundColor(.black) // Edit this color if you want to use another color for text color.
             .background(.white)
     }
 
