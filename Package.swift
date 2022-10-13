@@ -12,9 +12,15 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
         .package(url: "https://github.com/JohnSundell/Splash", from: "0.1.0"),
+        // Waiting for officially release of SwiftLint
+        .package(url: "https://github.com/realm/SwiftLint", revision: "5c3d4c1dab5cf94cc57e539955e472d23adb7fb7")
     ],
     targets: [
-        .target(name: "SlideKit", dependencies: ["Splash"]),
+        .target(
+            name: "SlideKit",
+            dependencies: ["Splash"],
+            plugins: [.plugin(name: "SwiftLintPlugin", package: "SwiftLint")]
+        ),
         .testTarget(name: "SlideKitTests", dependencies: ["SlideKit"]),
     ]
 )
