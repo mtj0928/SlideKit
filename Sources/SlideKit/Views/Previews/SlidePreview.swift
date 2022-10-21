@@ -28,6 +28,7 @@ public struct SlidePreview: View {
             SlideRouterView(slideIndexController: slideIndexController)
                 .background(backgroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .foregroundColor(.black)
         }
         .ignoresSafeArea()
         .aspectRatio(slideSize, contentMode: .fit)
