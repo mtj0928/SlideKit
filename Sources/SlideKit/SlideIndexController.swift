@@ -13,7 +13,7 @@ public class SlideIndexController: ObservableObject {
     public private(set) var currentIndex: Int
 
     @Published
-    public private(set) var currentScript: String
+    public private(set) var currentScript = ""
 
     public let slides: [any Slide]
 
@@ -29,7 +29,6 @@ public class SlideIndexController: ObservableObject {
         }
 
         self.currentIndex = index
-        self.currentScript = slides[index].script
     }
 
     @discardableResult

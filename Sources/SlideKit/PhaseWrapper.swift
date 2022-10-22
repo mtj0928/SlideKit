@@ -18,13 +18,15 @@ public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
     private var internalPhasedStore = InternalObservableObject<PhasedStateStore<State>>()
 
     public init() {
-        internalPhasedStore.observedObject = observableObjectContainer.resolve {
-            PhasedStateStore()
-        }
     }
 
     public var wrappedValue: PhasedStateStore<State> {
-        internalPhasedStore.observedObject!
+        if internalPhasedStore.observedObject == nil {
+            internalPhasedStore.observedObject = observableObjectContainer.resolve {
+                PhasedStateStore()
+            }
+        }
+        return internalPhasedStore.observedObject!
     }
 }
 
@@ -37,12 +39,17 @@ public struct SharedObject<Object: ObservableObject>: DynamicProperty {
     @ObservedObject
     private var internalObservableObject = InternalObservableObject<Object>()
 
+    private let factory: () -> Object
+
     public init(wrappedValue factory: @autoclosure @escaping () -> Object) {
-        internalObservableObject.observedObject = observableObjectContainer.resolve(factory)
+        self.factory = factory
     }
 
     public var wrappedValue: Object {
-        internalObservableObject.observedObject!
+        if internalObservableObject.observedObject == nil {
+            internalObservableObject.observedObject = observableObjectContainer.resolve(factory)
+        }
+         return internalObservableObject.observedObject!
     }
 
     public var projectedValue: Binding<Object> {
