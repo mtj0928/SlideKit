@@ -23,6 +23,7 @@ If you want to know more details, refer the [DocC Style Document](https://mtj092
 - [x] Support two windows, presentation window and presenter window.
 - [x] Show scripts on only presenter window (only macOS)
 - [x] Provide `PhasedState`, so you can divide a one slide step by step.
+- [x] Export PDF file (only macOS 13+)
 
 ## Simple Example
 You can create a presentation by SwiftUI like this.
