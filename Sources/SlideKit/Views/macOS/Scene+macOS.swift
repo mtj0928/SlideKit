@@ -41,5 +41,26 @@ extension Scene {
     public func setupAsPresenterWindow() -> some Scene {
         handlesExternalEvents(matching: ["editor"])
     }
+
+    @MainActor
+    public func addPDFExportCommands(
+        for view: some View,
+        with slideIndexController: SlideIndexController,
+        size slideSize: CGSize
+    ) -> some Scene {
+        self.commands {
+            CommandGroup(after: .importExport) {
+                if #available(macOS 13.0, *) {
+                    Button("Export PDF") {
+                        SlidePDFExporter.export(
+                            view: view,
+                            with: slideIndexController,
+                            size: slideSize
+                        )
+                    }
+                }
+            }
+        }
+    }
 }
 #endif

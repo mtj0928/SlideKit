@@ -30,6 +30,7 @@ struct SlideKitDemo_macOSApp: App {
             }
         }
         .setupAsPresentationWindow(Self.configuration.slideIndexController, appName: "slide")
+        .addPDFExportCommands(for: presentationContentView, with: Self.configuration.slideIndexController, size: Self.configuration.size)
 
         WindowGroup {
             macOSPresenterView(
