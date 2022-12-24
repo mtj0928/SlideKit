@@ -42,7 +42,7 @@ struct Code_Previews: PreviewProvider {
                     .lineSpacing(12)
             }
         }
-        .previewSlideBackgroundColor(SwiftUI.Color(red: 42 / 255, green: 42 / 255, blue: 48 / 255))
+        .previewColor(background: SwiftUI.Color(red: 42 / 255, green: 42 / 255, blue: 48 / 255))
     }
 
     private static var code: String {
