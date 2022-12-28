@@ -38,7 +38,7 @@ public struct HeaderSlide: Slide {
     ///   - header: A text which is shown on the slide
     ///   - fontWeight: A  fontWeight of the header text.
     ///   - content: A content of the slide.
-    public init(_ header: String, fontWeight: Font.Weight = .semibold, @ViewBuilder content: @escaping () -> some View) {
+    public init(_ header:  LocalizedStringKey, fontWeight: Font.Weight = .semibold, @ViewBuilder content: @escaping () -> some View) {
         self.configuration = HeaderSlideStyleConfiguration(
             header: .init {
                 Text(header)

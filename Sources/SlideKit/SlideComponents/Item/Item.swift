@@ -58,7 +58,7 @@ public struct Item: View {
     }
 
     public init(
-        _ text: String,
+        _ text: LocalizedStringKey,
         accessory: ItemAccessory? = .bullet
     ) {
         self.label = { AnyView(Text(text)) }
