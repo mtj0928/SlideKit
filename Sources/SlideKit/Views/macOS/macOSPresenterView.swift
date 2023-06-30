@@ -105,7 +105,7 @@ struct macOSPresenterView_Previews: PreviewProvider {
         ) {
             SlideRouterView(slideIndexController: .previews)
         }
-        .preferredColorScheme(.light)
+        .foregroundStyle(.black)
     }
 }
 #endif
