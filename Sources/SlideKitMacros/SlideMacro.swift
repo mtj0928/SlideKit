@@ -3,7 +3,7 @@ import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 
-public struct SlidePageMacro: ConformanceMacro, MemberMacro {
+public struct SlideMacro: ConformanceMacro, MemberMacro {
     public static func expansion(
         of node: AttributeSyntax,
         providingMembersOf declaration: some DeclGroupSyntax,
@@ -40,7 +40,7 @@ public struct SlidePageMacro: ConformanceMacro, MemberMacro {
             ].compactMap { $0 }
         }
         else {
-            context.addDiagnostics(from: SlidePageError("There are two or more @Phase"), node: declaration)
+            context.addDiagnostics(from: SlideError("There are two or more @Phase"), node: declaration)
             return []
         }
     }
@@ -87,7 +87,7 @@ public struct SlidePageMacro: ConformanceMacro, MemberMacro {
     }
 }
 
-struct SlidePageError: CustomStringConvertible, Error {
+struct SlideError: CustomStringConvertible, Error {
     let description: String
 
     init(_ description: String) {

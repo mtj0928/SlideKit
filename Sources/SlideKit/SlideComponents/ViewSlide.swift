@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@SlidePage
+@Slide
 public struct ViewSlide<Content: View>: View{
 
     let content: () -> Content

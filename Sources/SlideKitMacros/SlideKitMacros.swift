@@ -4,6 +4,6 @@ import SwiftSyntaxMacros
 @main
 struct SlideKitMacrosPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
-        SlidePageMacro.self
+        SlideMacro.self
     ]
 }

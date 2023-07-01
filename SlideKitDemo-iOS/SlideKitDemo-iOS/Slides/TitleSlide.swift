@@ -8,7 +8,7 @@
 import SlideKit
 import SwiftUI
 
-@SlidePage
+@Slide
 struct TitleSlide: View {
 
     enum SlidePhasedState: Int, PhasedState {

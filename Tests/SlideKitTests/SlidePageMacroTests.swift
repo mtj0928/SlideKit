@@ -5,14 +5,14 @@ import SwiftSyntaxMacrosTestSupport
 import SlideKitMacros
 
 let testMacros: [String: Macro.Type] = [
-    "SlidePage": SlidePageMacro.self
+    "Slide": SlideMacro.self
 ]
 
-final class SlidePageMacroTests: XCTestCase {
-    func testSlidePageWithPhase() {
+final class SlideMacroTests: XCTestCase {
+    func testSlideWithPhase() {
         assertMacroExpansion(
             """
-            @SlidePage
+            @Slide
             struct FooSlide: View {
                 @Phase var state: State
             }
@@ -37,10 +37,10 @@ final class SlidePageMacroTests: XCTestCase {
         )
     }
 
-    func testSlidePageWithoutPhase() {
+    func testSlideWithoutPhase() {
         assertMacroExpansion(
             """
-            @SlidePage
+            @Slide
             struct FooSlide: View {
             }
             """,

@@ -15,7 +15,7 @@ extension SlideIndexController {
     }
 }
 
-@SlidePage
+@Slide
 private struct SampleSlide: View {
     let text: String
 

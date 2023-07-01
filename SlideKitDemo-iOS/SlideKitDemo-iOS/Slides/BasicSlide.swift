@@ -8,7 +8,7 @@
 import SlideKit
 import SwiftUI
 
-@SlidePage
+@Slide
 struct BasicSlide: View {
     var body: some View {
         HeaderSlide("Title") {
@@ -29,7 +29,7 @@ struct BasicSlide: View {
     }
 }
 
-@SlidePage
+@Slide
 struct SampleSlide: View {
     var body: some View {
         HeaderSlide("Sample Slide") {
