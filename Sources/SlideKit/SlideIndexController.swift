@@ -17,12 +17,19 @@ public class SlideIndexController: ObservableObject {
 
     public let slides: [any Slide]
 
+    private let objectContainer: ObservableObjectContainer
+
     public var currentSlide: any Slide {
         slides[currentIndex]
     }
 
-    public init(index: Int = 0, @SlideBuilder slideBuilder: () -> [any Slide]) {
+    public init(
+        index: Int = 0,
+        container: ObservableObjectContainer = ObservableObjectContainerKey.defaultValue,
+        @SlideBuilder slideBuilder: () -> [any Slide]
+    ) {
         self.slides = slideBuilder()
+        self.objectContainer = container
 
         guard index < slides.count else {
             fatalError("index must be less than the number of slides.")
@@ -74,7 +81,7 @@ public class SlideIndexController: ObservableObject {
 
     private func getPhasedStateStore(at index: Int) -> any PhasedStateStoreProtocol {
         let slide = slides[index]
-        return slide.typeErasedPhasedStateStore
+        return slide.typeErasedPhasedStateStore(on: objectContainer)
     }
 
     public func move(to index: Int) {
@@ -82,10 +89,18 @@ public class SlideIndexController: ObservableObject {
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.backToFirst()
     }
+
+    public func phaseStateStore<State: PhasedState>() -> PhasedStateStore<State> {
+        objectContainer.resolve {
+            PhasedStateStore()
+        }
+    }
 }
 
 extension Slide {
-    fileprivate var typeErasedPhasedStateStore: any PhasedStateStoreProtocol {
-        _phaseStore
+    fileprivate func typeErasedPhasedStateStore(on container: ObservableObjectContainer) -> any PhasedStateStoreProtocol {
+        container.resolve {
+            PhasedStateStore<SlidePhasedState>()
+        }
     }
 }

@@ -42,16 +42,6 @@ public protocol Slide: View {
 
     typealias Phase = PhaseWrapper<SlidePhasedState>
 
-    /// A store which controls current `SlidePhasedState`.
-    ///
-    /// You can get current `SlidePhasedState` and forward / back it.
-    /// > Note: The property must be defined with `Phase` like the bellow.
-    ///
-    /// ```swift
-    /// @Phase var phasedStateStore: PhasedStateStore<SlidePhasedState>
-    /// ```
-    var _phaseStore: PhasedStateStore<SlidePhasedState> { get }
-
     /// A script for the current slide. The script will be shown on presenter view (macOS only).
     /// The default value is an empty String.
     var script: String { get }

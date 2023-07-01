@@ -11,8 +11,8 @@ import SwiftUI
 @propertyWrapper
 public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
 
-    @Environment(\.observableObjectContainer)
-    private var observableObjectContainer
+    @Environment(\.slideIndexController)
+    private var slideIndexController
 
     @ObservedObject
     private var internalPhasedStore = InternalObservableObject<PhasedStateStore<State>>()
@@ -31,9 +31,7 @@ public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
 
     public var projectedValue: PhasedStateStore<State> {
         if internalPhasedStore.observedObject == nil {
-            internalPhasedStore.observedObject = observableObjectContainer.resolve {
-                PhasedStateStore()
-            }
+            internalPhasedStore.observedObject = slideIndexController?.phaseStateStore()
         }
         return internalPhasedStore.observedObject!
     }
