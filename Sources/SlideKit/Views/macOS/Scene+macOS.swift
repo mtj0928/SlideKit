@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Scene {
 
+    @available(*, deprecated, message: "Use the other setupAsPresentationWindow.")
     public func setupAsPresentationWindow(
         _ slideIndexController: SlideIndexController,
         appName: String
@@ -24,6 +25,27 @@ extension Scene {
                 CommandGroup(after: .windowList) {
                     Button("Open Presenter Window") { NSWorkspace.shared.open(URL(string: "\(appName)://editor")!) }
                         .keyboardShortcut("p", modifiers: .command)
+                }
+            }
+    }
+
+    public func setupAsPresentationWindow(
+        _ slideIndexController: SlideIndexController,
+        openWindow: @escaping () -> Void
+    ) -> some Scene {
+        windowStyle(.hiddenTitleBar)
+            .commands {
+                CommandGroup(after: .undoRedo) {
+                    forwardButton(.rightArrow, slideIndexController: slideIndexController)
+                    forwardButton(.return, slideIndexController: slideIndexController)
+                    backButton(.leftArrow, slideIndexController: slideIndexController)
+                }
+
+                CommandGroup(after: .windowList) {
+                    Button("Open Presenter Window") {
+                        openWindow()
+                    }
+                    .keyboardShortcut("p", modifiers: .command)
                 }
             }
     }
