@@ -86,6 +86,6 @@ public class SlideIndexController: ObservableObject {
 
 extension Slide {
     fileprivate var typeErasedPhasedStateStore: any PhasedStateStoreProtocol {
-        phasedStateStore
+        _phaseStore
     }
 }

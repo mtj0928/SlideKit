@@ -20,7 +20,16 @@ public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
     public init() {
     }
 
-    public var wrappedValue: PhasedStateStore<State> {
+    public var wrappedValue: State {
+        get {
+            projectedValue.current
+        }
+        set {
+            projectedValue.current = newValue
+        }
+    }
+
+    public var projectedValue: PhasedStateStore<State> {
         if internalPhasedStore.observedObject == nil {
             internalPhasedStore.observedObject = observableObjectContainer.resolve {
                 PhasedStateStore()

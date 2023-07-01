@@ -30,6 +30,12 @@ let package = Package(
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
             ]
         ),
-        .testTarget(name: "SlideKitTests", dependencies: ["SlideKit"]),
+        .testTarget(
+            name: "SlideKitTests",
+            dependencies: [
+                "SlideKit",
+                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax")
+            ]
+        )
     ]
 )

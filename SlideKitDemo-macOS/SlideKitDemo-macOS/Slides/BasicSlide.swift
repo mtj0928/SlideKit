@@ -8,13 +8,14 @@
 import SlideKit
 import SwiftUI
 
-struct BasicSlide: Slide {
+@SlidePage
+struct BasicSlide: View {
 
-    enum SlidePhasedState: Int, PhasedState {
+    enum SlidePhase: Int, PhasedState {
         case initial, next
     }
 
-    @Phase var phasedStateStore
+    @Phase var phase: SlidePhase
 
     var body: some View {
         HeaderSlide("How to use the slide") {
@@ -22,7 +23,7 @@ struct BasicSlide: Slide {
                 Item("You can go to the next state")
                 Item("You can also use \"return\" or \"→\"")
             }
-            if phasedStateStore.when(.next) {
+            if phase == .next {
                 Item("Please tap the left half of this window") {
                     Item("You can back the previous slide")
                     Item("You can also use \"←\"")
@@ -32,7 +33,7 @@ struct BasicSlide: Slide {
     }
 
     var script: String {
-        switch phasedStateStore.current {
+        switch phase {
         case .initial:
             return """
                     Let me show how to use the slide.
@@ -50,6 +51,7 @@ struct BasicSlide_Previews: PreviewProvider {
     static var previews: some View {
         SlidePreview {
             BasicSlide()
+                .phase(.next)
         }
     }
 }

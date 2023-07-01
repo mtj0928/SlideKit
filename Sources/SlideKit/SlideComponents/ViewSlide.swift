@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-public struct ViewSlide<Content: View>: Slide {
+@SlidePage
+public struct ViewSlide<Content: View>: View{
 
     let content: () -> Content
     public let script: String

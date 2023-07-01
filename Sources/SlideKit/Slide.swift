@@ -50,7 +50,7 @@ public protocol Slide: View {
     /// ```swift
     /// @Phase var phasedStateStore: PhasedStateStore<SlidePhasedState>
     /// ```
-    var phasedStateStore: PhasedStateStore<SlidePhasedState> { get }
+    var _phaseStore: PhasedStateStore<SlidePhasedState> { get }
 
     /// A script for the current slide. The script will be shown on presenter view (macOS only).
     /// The default value is an empty String.
@@ -64,11 +64,4 @@ public protocol Slide: View {
 extension Slide {
     public var script: String { "" }
     public var shouldHideIndex: Bool { false }
-}
-
-extension Slide where SlidePhasedState == SimplePhasedState {
-
-    public var phasedStateStore: PhasedStateStore<SimplePhasedState> {
-        PhasedStateStore()
-    }
 }

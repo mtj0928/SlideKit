@@ -26,7 +26,8 @@ import SwiftUI
 /// ## Topics
 /// ### Customize Style
 /// - ``HeaderSlideStyle``
-public struct HeaderSlide: Slide {
+@SlidePage
+public struct HeaderSlide: View {
 
     @Environment(\.headerSlideStyle)
     private var style
