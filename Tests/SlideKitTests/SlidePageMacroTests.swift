@@ -21,12 +21,13 @@ final class SlideMacroTests: XCTestCase {
             """
             struct FooSlide: View {
                 @Phase var state: State
-                public var _phaseStore: PhasedStateStore<State> {
-                    $state
-                }
                 public typealias SlidePhasedState = State
+                @Environment(\\.observableObjectContainer) private var container
                 func phase(_ phase: State) -> Self {
-                    $state.current = phase
+                    let store: PhasedStateStore<State> = container.resolve {
+                        PhasedStateStore(phase)
+                    }
+                    store.current = phase
                     return self
                 }
             }
@@ -47,10 +48,6 @@ final class SlideMacroTests: XCTestCase {
             expandedSource:
             """
             struct FooSlide: View {
-                @Phase private var _phase: SimplePhasedState
-                public var _phaseStore: PhasedStateStore<SimplePhasedState> {
-                    $_phase
-                }
                 public typealias SlidePhasedState = SimplePhasedState
             }
             extension FooSlide: Slide {

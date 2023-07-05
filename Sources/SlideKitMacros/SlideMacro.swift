@@ -29,8 +29,14 @@ public struct SlideMacro: ConformanceMacro, MemberMacro {
             return [
                 type != "SlidePhasedState" ? "public typealias SlidePhasedState = \(raw: type)" : nil,
                 """
+                @Environment(\\.observableObjectContainer) private var container
+                """,
+                """
                 func phase(_ phase: \(raw: type)) -> Self {
-                    $\(raw: name).current = phase
+                    let store: PhasedStateStore<\(raw: type)> = container.resolve {
+                        PhasedStateStore(phase)
+                    }
+                    store.current = phase
                     return self
                 }
                 """
