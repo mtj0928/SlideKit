@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension SlideIndexController {
-    @MainActor
     static let previews = SlideIndexController(index: 0) {
         SampleSlide(text: "Hoge")
         SampleSlide(text: "Piyo")
