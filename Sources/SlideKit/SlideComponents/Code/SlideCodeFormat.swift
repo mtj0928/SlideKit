@@ -25,7 +25,7 @@ extension SlideCodeFormat {
         }
 
         private lazy var regularFont = SwiftUI.Font.system(size: CGFloat(theme.font.size), weight: .regular, design: .monospaced)
-        private lazy var boldFont = SwiftUI.Font.system(size: CGFloat(theme.font.size), weight: .medium, design: .monospaced)
+        private lazy var boldFont = SwiftUI.Font.system(size: CGFloat(theme.font.size), weight: .semibold, design: .monospaced)
         private var string = AttributedString()
 
         mutating func font(type: TokenType) -> SwiftUI.Font {
@@ -64,7 +64,7 @@ extension SlideCodeFormat {
 }
 
 extension Splash.Color {
-    convenience init(red: CGFloat, green: CGFloat, blue: CGFloat) {
+    public convenience init(red: CGFloat, green: CGFloat, blue: CGFloat) {
         self.init(red: red, green: green, blue: blue, alpha: 1)
     }
 }
