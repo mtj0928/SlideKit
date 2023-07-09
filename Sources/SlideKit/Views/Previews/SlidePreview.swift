@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 public struct SlidePreview: View {
 
     @ObservedObject
