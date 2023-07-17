@@ -40,7 +40,7 @@ public class SlideIndexController: ObservableObject {
 
     @discardableResult
     public func forward() -> Bool {
-        defer { currentScript = currentSlide.script }
+        defer { currentScript = currentSlide.script(on: objectContainer) }
         let phasedStateStore = getPhasedStateStore(at: currentIndex)
         if phasedStateStore.forward() {
             return true
@@ -57,7 +57,7 @@ public class SlideIndexController: ObservableObject {
 
     @discardableResult
     public func back() -> Bool {
-        defer { currentScript = currentSlide.script }
+        defer { currentScript = currentSlide.script(on: objectContainer) }
         let phasedStateStore = getPhasedStateStore(at: currentIndex)
         if phasedStateStore.back() {
             return true
@@ -76,7 +76,7 @@ public class SlideIndexController: ObservableObject {
         currentIndex = 0
         let phasedStateStore = getPhasedStateStore(at: currentIndex)
         phasedStateStore.backToFirst()
-        currentScript = currentSlide.script
+        currentScript = currentSlide.script(on: objectContainer)
     }
 
     private func getPhasedStateStore(at index: Int) -> any PhasedStateStoreProtocol {
@@ -88,6 +88,7 @@ public class SlideIndexController: ObservableObject {
         currentIndex = index
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.backToFirst()
+        currentScript = currentSlide.script(on: objectContainer)
     }
 
     public func phaseStateStore<State: PhasedState>() -> PhasedStateStore<State> {
@@ -102,5 +103,14 @@ extension Slide {
         container.resolve {
             PhasedStateStore<SlidePhasedState>()
         }
+    }
+
+    fileprivate func script(on container: ObservableObjectContainer) -> String {
+        let object = self
+        let store = container.resolve {
+            PhasedStateStore<SlidePhasedState>()
+        }
+        object.phasesStateSore(store)
+        return object.script
     }
 }

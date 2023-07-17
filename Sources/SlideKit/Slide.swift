@@ -49,9 +49,14 @@ public protocol Slide: View {
     /// A boolean value indicating whether the slide index at the right bottom is hidden or not.
     /// The default value is `false`
     var shouldHideIndex: Bool { get }
+
+    /// Inject PhasedStateStore.
+    /// This function should be called by SlideKit, please do not call the function.
+    func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>)
 }
 
 extension Slide {
     public var script: String { "" }
     public var shouldHideIndex: Bool { false }
+    public func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>) {}
 }

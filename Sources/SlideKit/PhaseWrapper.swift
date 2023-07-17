@@ -30,10 +30,15 @@ public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
     }
 
     public var projectedValue: PhasedStateStore<State> {
-        if internalPhasedStore.observedObject == nil {
-            internalPhasedStore.observedObject = slideIndexController?.phaseStateStore()
+        get {
+            if internalPhasedStore.observedObject == nil {
+                internalPhasedStore.observedObject = slideIndexController?.phaseStateStore()
+            }
+            return internalPhasedStore.observedObject!
         }
-        return internalPhasedStore.observedObject!
+        nonmutating set {
+            internalPhasedStore.observedObject = newValue
+        }
     }
 }
 

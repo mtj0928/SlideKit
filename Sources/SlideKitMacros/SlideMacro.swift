@@ -18,10 +18,9 @@ public struct SlideMacro: ConformanceMacro, MemberMacro {
             return (name: name, type: type)
         }
         if phasedVariables.isEmpty {
-            let type = "SimplePhasedState"
             return [
-                type != "SlidePhasedState" ? "public typealias SlidePhasedState = \(raw: type)" : nil,
-            ].compactMap { $0 }
+                "public typealias SlidePhasedState = SimplePhasedState"
+            ]
         }
         else if phasedVariables.count == 1 {
             let type = phasedVariables[0].type
@@ -38,6 +37,11 @@ public struct SlideMacro: ConformanceMacro, MemberMacro {
                     }
                     store.current = phase
                     return self
+                }
+                """,
+                """
+                func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>) {
+                    $\(raw: name) = phasedStateStore
                 }
                 """
             ].compactMap { $0 }

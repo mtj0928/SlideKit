@@ -30,6 +30,9 @@ final class SlideMacroTests: XCTestCase {
                     store.current = phase
                     return self
                 }
+                func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>) {
+                    $state = phasedStateStore
+                }
             }
             extension FooSlide: Slide {
             }
