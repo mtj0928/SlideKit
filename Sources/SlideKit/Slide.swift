@@ -40,8 +40,6 @@ public protocol Slide: View {
     /// The default type is ``SimplePhasedState``.
     associatedtype SlidePhasedState: PhasedState
 
-    typealias Phase = PhaseWrapper<SlidePhasedState>
-
     /// A script for the current slide. The script will be shown on presenter view (macOS only).
     /// The default value is an empty String.
     var script: String { get }

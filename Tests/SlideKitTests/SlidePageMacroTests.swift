@@ -22,6 +22,7 @@ final class SlideMacroTests: XCTestCase {
             struct FooSlide: View {
                 @Phase var state: State
                 public typealias SlidePhasedState = State
+                public typealias Phase = PhaseWrapper
                 @Environment(\\.observableObjectContainer) private var container
                 func phase(_ phase: State) -> Self {
                     let store: PhasedStateStore<State> = container.resolve {

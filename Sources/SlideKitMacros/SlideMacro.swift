@@ -27,6 +27,7 @@ public struct SlideMacro: ConformanceMacro, MemberMacro {
             let name = phasedVariables[0].name
             return [
                 type != "SlidePhasedState" ? "public typealias SlidePhasedState = \(raw: type)" : nil,
+                "public typealias Phase = PhaseWrapper",
                 """
                 @Environment(\\.observableObjectContainer) private var container
                 """,
