@@ -5,8 +5,11 @@ You can easily make presentation slides and customize the design perfectly becau
 
 ![Slides](https://user-images.githubusercontent.com/12427733/190956930-ea9ce4d0-0a19-4bb3-b43b-28dd2d73374a.png)
 
+## Requirements
+- Xcode 15+
+- Swift 5.9
 
-## Document
+## Documents
 First, see the [Tutorial for SlideKit](https://mtj0928.github.io/SlideKit/tutorials/meet-slidekit).  
 You can learn how to use SlideKit and make presentation slides through making the sample presentation slides.
 
@@ -22,7 +25,7 @@ If you want to know more details, refer the [DocC Style Document](https://mtj092
 - [x] Show the current slide index at bottom right on slide.
 - [x] Support two windows, presentation window and presenter window.
 - [x] Show scripts on only presenter window (only macOS)
-- [x] Provide `PhasedState`, so you can divide a one slide step by step.
+- [x] Provide `@Phase`, so you can divide a one slide step by step.
 - [x] Export PDF file (only macOS 13+)
 
 ## Simple Example
@@ -48,4 +51,5 @@ And then, this is the result of the code.
 
 ## Presentations made with SlideKit
 If you make presentations slide with SlideKit, add it to the following litst!!
-- [After iOSDC](https://github.com/mtj0928/AfteriOSDC): A presentation which shares the hard points to make presentations slides by SwiftUI. (Japanese)
+- [After iOSDC](https://github.com/mtj0928/AfteriOSDC): A presentation, which shares the hard points to make presentations slides by SwiftUI. (Japanese)
+- [iOSDC23](https://github.com/mtj0928/iOSDC23) A presentation, which shows a dependency injection strategy on SwiftUI. (Japanese)
