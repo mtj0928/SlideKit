@@ -3,7 +3,24 @@ import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 
-public struct SlideMacro: ConformanceMacro, MemberMacro {
+public struct SlideMacro: ExtensionMacro, MemberMacro {
+
+    public static func expansion(
+        of node: AttributeSyntax,
+        attachedTo declaration: some DeclGroupSyntax,
+        providingExtensionsOf type: some TypeSyntaxProtocol,
+        conformingTo protocols: [TypeSyntax],
+        in context: some MacroExpansionContext
+    ) throws -> [ExtensionDeclSyntax] {
+        try [
+            ExtensionDeclSyntax(
+                """
+                extension \(type): Slide {}
+                """
+            )
+        ]
+    }
+
     public static func expansion(
         of node: AttributeSyntax,
         providingMembersOf declaration: some DeclGroupSyntax,
@@ -54,23 +71,21 @@ public struct SlideMacro: ConformanceMacro, MemberMacro {
     }
 
     private static func hasPhase(_ variable: VariableDeclSyntax) -> Bool {
-        let attributes = variable.attributes
-        return attributes?
+        variable.attributes
             .compactMap({ $0.as(AttributeSyntax.self) })
             .map(\.attributeName)
-            .compactMap({ $0.as(SimpleTypeIdentifierSyntax.self) })
+            .compactMap({ $0.as(IdentifierTypeSyntax.self) })
             .map(\.name.text)
             .contains(where: { name in
                 name == "Phase"
             })
-        ?? false
     }
 
     private static func extractTypeName(_ variable: VariableDeclSyntax) -> String? {
         variable.bindings
             .first?
             .typeAnnotation?
-            .type.as(SimpleTypeIdentifierSyntax.self)?
+            .type.as(IdentifierTypeSyntax.self)?
             .name
             .text
     }
@@ -81,17 +96,6 @@ public struct SlideMacro: ConformanceMacro, MemberMacro {
             .pattern.as(IdentifierPatternSyntax.self)?
             .identifier
             .text
-    }
-
-
-    public static func expansion(
-        of node: AttributeSyntax,
-        providingConformancesOf declaration: some DeclGroupSyntax,
-        in context: some MacroExpansionContext
-    ) throws -> [(TypeSyntax, GenericWhereClauseSyntax?)] {
-        [
-            ("Slide", nil)
-        ]
     }
 }
 
