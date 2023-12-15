@@ -12,7 +12,8 @@ You can create your presentation slides using a ``Slide`` protocol.
 
 You can make presentation slides like this.
 ```swift
-struct IntroductionSlide: Slide {
+@Slide
+struct IntroductionSlide: View {
     var body: some View {
         HeaderSlide("SlideKit") {
             Item("SlideKit helps you make presentation slides by SwiftUI")

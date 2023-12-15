@@ -1,7 +1,8 @@
 import SlideKit
 import SwiftUI
 
-struct CustomizedSlide: Slide {
+@Slide
+struct CustomizedSlide: View {
     var body: some View {
         HeaderSlide("Customize Slide Theme") {
             Item("HeaderSlide supports HeaderSlideStyle.")

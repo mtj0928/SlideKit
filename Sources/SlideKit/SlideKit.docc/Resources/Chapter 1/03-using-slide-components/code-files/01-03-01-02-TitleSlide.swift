@@ -1,7 +1,8 @@
 import SlideKit
 import SwiftUI
 
-struct TitleSlide: Slide {
+@Slide
+struct TitleSlide: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
             Text("SlideKit Presentations")

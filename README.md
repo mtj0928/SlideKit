@@ -29,7 +29,8 @@ If you want to know more details, refer the [DocC Style Document](https://mtj092
 You can create a presentation by SwiftUI like this.
 
 ```swift
-struct IntroductionSlide: Slide {
+@Slide
+struct IntroductionSlide: View {
     var body: some View {
         HeaderSlide("SlideKit") {
             Item("SlideKit helps you make presentation slides by SwiftUI")
