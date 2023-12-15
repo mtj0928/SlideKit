@@ -1,7 +1,8 @@
 import SlideKit
 import SwiftUI
 
-struct CodeSlide: Slide {
+@Slide
+struct CodeSlide: View {
 
     var body: some View {
         HeaderSlide("Code Slide") {

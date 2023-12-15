@@ -1,7 +1,8 @@
 import SlideKit
 import SwiftUI
 
-struct TitleSlide: Slide {
+@Slide
+struct TitleSlide: View {
     var body: some View {
         Text("Hello, World!")
     }

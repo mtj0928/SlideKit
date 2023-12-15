@@ -8,20 +8,20 @@
 import SlideKit
 import SwiftUI
 
-struct TitleSlide: Slide {
+@Slide
+struct TitleSlide: View {
 
     enum SlidePhasedState: Int, PhasedState {
         case initial, double
     }
 
-    @Phase var phasedStateStore
-
     let title: String
+    @Phase var phase: SlidePhasedState
 
     var body: some View {
         VStack {
             Text(title)
-            if phasedStateStore.when(.double) {
+            if phase == .double {
                 Text(title)
             }
         }
@@ -35,5 +35,6 @@ struct TitleSlide_Previews: PreviewProvider {
             TitleSlide(title: "Hoge")
             TitleSlide(title: "Piyo")
         }
+        .preferredColorScheme(.dark)
     }
 }

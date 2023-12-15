@@ -16,7 +16,7 @@ protocol PhasedStateStoreProtocol {
 
 public class PhasedStateStore<State: PhasedState>: ObservableObject, PhasedStateStoreProtocol {
 
-    @Published public private(set) var current: State
+    @Published public var current: State
 
     public init(_ state: State = .initial) {
         self.current = state

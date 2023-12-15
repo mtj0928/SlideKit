@@ -1,7 +1,8 @@
 import SlideKit
 import SwiftUI
 
-struct PhasedSlide: Slide {
+@Slide
+struct PhasedSlide: View {
     var body: some View {
         HeaderSlide("Phased Slide") {
             Item("Slide can be divided to multiple steps by defining PhasedState.", accessory: nil) {

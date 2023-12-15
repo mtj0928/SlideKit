@@ -17,12 +17,19 @@ public class SlideIndexController: ObservableObject {
 
     public let slides: [any Slide]
 
+    private let objectContainer: ObservableObjectContainer
+
     public var currentSlide: any Slide {
         slides[currentIndex]
     }
 
-    public init(index: Int = 0, @SlideBuilder slideBuilder: () -> [any Slide]) {
+    public init(
+        index: Int = 0,
+        container: ObservableObjectContainer = ObservableObjectContainerKey.defaultValue,
+        @SlideBuilder slideBuilder: () -> [any Slide]
+    ) {
         self.slides = slideBuilder()
+        self.objectContainer = container
 
         guard index < slides.count else {
             fatalError("index must be less than the number of slides.")
@@ -33,7 +40,7 @@ public class SlideIndexController: ObservableObject {
 
     @discardableResult
     public func forward() -> Bool {
-        defer { currentScript = currentSlide.script }
+        defer { currentScript = currentSlide.script(on: objectContainer) }
         let phasedStateStore = getPhasedStateStore(at: currentIndex)
         if phasedStateStore.forward() {
             return true
@@ -50,7 +57,7 @@ public class SlideIndexController: ObservableObject {
 
     @discardableResult
     public func back() -> Bool {
-        defer { currentScript = currentSlide.script }
+        defer { currentScript = currentSlide.script(on: objectContainer) }
         let phasedStateStore = getPhasedStateStore(at: currentIndex)
         if phasedStateStore.back() {
             return true
@@ -69,23 +76,41 @@ public class SlideIndexController: ObservableObject {
         currentIndex = 0
         let phasedStateStore = getPhasedStateStore(at: currentIndex)
         phasedStateStore.backToFirst()
-        currentScript = currentSlide.script
+        currentScript = currentSlide.script(on: objectContainer)
     }
 
     private func getPhasedStateStore(at index: Int) -> any PhasedStateStoreProtocol {
         let slide = slides[index]
-        return slide.typeErasedPhasedStateStore
+        return slide.typeErasedPhasedStateStore(on: objectContainer)
     }
 
     public func move(to index: Int) {
         currentIndex = index
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.backToFirst()
+        currentScript = currentSlide.script(on: objectContainer)
+    }
+
+    public func phaseStateStore<State: PhasedState>() -> PhasedStateStore<State> {
+        objectContainer.resolve {
+            PhasedStateStore()
+        }
     }
 }
 
 extension Slide {
-    fileprivate var typeErasedPhasedStateStore: any PhasedStateStoreProtocol {
-        phasedStateStore
+    fileprivate func typeErasedPhasedStateStore(on container: ObservableObjectContainer) -> any PhasedStateStoreProtocol {
+        container.resolve {
+            PhasedStateStore<SlidePhasedState>()
+        }
+    }
+
+    fileprivate func script(on container: ObservableObjectContainer) -> String {
+        let object = self
+        let store = container.resolve {
+            PhasedStateStore<SlidePhasedState>()
+        }
+        object.phasesStateSore(store)
+        return object.script
     }
 }

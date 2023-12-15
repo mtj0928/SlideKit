@@ -25,14 +25,14 @@
             }
             
             @Step { 
-                Add a new property `phasedStateStore`.
+                Add a new property `phase`.
                 The property has current phased state and the state is managed by SlideKit.
                 
                 @Code(name: "PhasedSlide.swift", file: "01-02-01-03-PhasedSlide.swift")
             }
             
             @Step { 
-                Update the layout based on the current phased state.
+                Update the layout based on the current `phase`.
 
                 @Code(name: "PhasedSlide.swift", file: "01-02-01-04-PhasedSlide.swift")
             }

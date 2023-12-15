@@ -8,7 +8,8 @@
 import SlideKit
 import SwiftUI
 
-struct CustomHeaderStyleSlide: Slide {
+@Slide
+struct CustomHeaderStyleSlide: View {
     var body: some View {
         HeaderSlide("Custom Style Slide") {
             Item("Header Slide Style") {

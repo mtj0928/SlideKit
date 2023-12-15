@@ -1,7 +1,8 @@
 import SlideKit
 import SwiftUI
 
-struct PhasedSlide: Slide {
+@Slide
+struct PhasedSlide: View {
 
     enum Substep: Int, PhasedState {
         case initial, second, third

@@ -8,7 +8,8 @@
 import SlideKit
 import SwiftUI
 
-struct BasicSlide: Slide {
+@Slide
+struct BasicSlide: View {
     var body: some View {
         HeaderSlide("Title") {
             Item("Hoge") {
@@ -28,7 +29,8 @@ struct BasicSlide: Slide {
     }
 }
 
-struct SampleSlide: Slide {
+@Slide
+struct SampleSlide: View {
     var body: some View {
         HeaderSlide("Sample Slide") {
             Item("This is a sample slide.") {

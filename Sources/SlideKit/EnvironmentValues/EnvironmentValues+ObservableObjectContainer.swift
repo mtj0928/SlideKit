@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-private enum Key: EnvironmentKey {
-    static let defaultValue = ObservableObjectContainer()
+public enum ObservableObjectContainerKey: EnvironmentKey {
+    public static let defaultValue = ObservableObjectContainer()
 }
 
 extension EnvironmentValues {
 
     public var observableObjectContainer: ObservableObjectContainer {
-        get { self[Key.self] }
-        set { self[Key.self] = newValue }
+        get { self[ObservableObjectContainerKey.self] }
+        set { self[ObservableObjectContainerKey.self] = newValue }
     }
 }

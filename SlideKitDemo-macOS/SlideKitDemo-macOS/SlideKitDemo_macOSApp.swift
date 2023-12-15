@@ -11,6 +11,8 @@ import SlideKit
 @main
 struct SlideKitDemo_macOSApp: App {
 
+    @Environment(\.openWindow) var openWindow
+
     /// Edit slide configurations in SlideConfiguration.swift
     private static let configuration = SlideConfiguration()
 
@@ -29,10 +31,12 @@ struct SlideKitDemo_macOSApp: App {
                 presentationContentView
             }
         }
-        .setupAsPresentationWindow(Self.configuration.slideIndexController, appName: "slide")
+        .setupAsPresentationWindow(Self.configuration.slideIndexController) {
+            openWindow(id: "presenter")
+        }
         .addPDFExportCommands(for: presentationContentView, with: Self.configuration.slideIndexController, size: Self.configuration.size)
 
-        WindowGroup {
+        WindowGroup(id: "presenter") {
             macOSPresenterView(
                 slideSize: Self.configuration.size,
                 slideIndexController: Self.configuration.slideIndexController

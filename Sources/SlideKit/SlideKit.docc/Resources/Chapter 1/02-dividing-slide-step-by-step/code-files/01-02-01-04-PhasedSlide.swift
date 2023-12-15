@@ -1,14 +1,14 @@
 import SlideKit
 import SwiftUI
 
-struct PhasedSlide: Slide {
+@Slide
+struct PhasedSlide: View {
 
-    enum Substep: Int, PhasedState {
+    enum SlidePhase: Int, PhasedState {
         case initial, second, third
     }
 
-    @Phase
-    var phasedStateStore: PhasedStateStore<Substep>
+    @Phase var phase: SlidePhase
 
     var body: some View {
         HeaderSlide("Phased Slide") {

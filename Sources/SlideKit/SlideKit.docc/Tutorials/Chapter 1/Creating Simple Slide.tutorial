@@ -50,7 +50,7 @@
             }
             
             @Step {
-                Change the conforming protocol to `Slide` from `View`.
+                Attach `@Slide` macro to the view.
                 @Code(name: "IntroductionSlide.swift", file: "01-01-02-03-IntroductionSlide.swift")
             }
             

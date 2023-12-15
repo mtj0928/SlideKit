@@ -40,18 +40,6 @@ public protocol Slide: View {
     /// The default type is ``SimplePhasedState``.
     associatedtype SlidePhasedState: PhasedState
 
-    typealias Phase = PhaseWrapper<SlidePhasedState>
-
-    /// A store which controls current `SlidePhasedState`.
-    ///
-    /// You can get current `SlidePhasedState` and forward / back it.
-    /// > Note: The property must be defined with `Phase` like the bellow.
-    ///
-    /// ```swift
-    /// @Phase var phasedStateStore: PhasedStateStore<SlidePhasedState>
-    /// ```
-    var phasedStateStore: PhasedStateStore<SlidePhasedState> { get }
-
     /// A script for the current slide. The script will be shown on presenter view (macOS only).
     /// The default value is an empty String.
     var script: String { get }
@@ -59,16 +47,14 @@ public protocol Slide: View {
     /// A boolean value indicating whether the slide index at the right bottom is hidden or not.
     /// The default value is `false`
     var shouldHideIndex: Bool { get }
+
+    /// Inject PhasedStateStore.
+    /// This function should be called by SlideKit, please do not call the function.
+    func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>)
 }
 
 extension Slide {
     public var script: String { "" }
     public var shouldHideIndex: Bool { false }
-}
-
-extension Slide where SlidePhasedState == SimplePhasedState {
-
-    public var phasedStateStore: PhasedStateStore<SimplePhasedState> {
-        PhasedStateStore()
-    }
+    public func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>) {}
 }
