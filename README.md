@@ -1,7 +1,12 @@
 # SlideKit
-
-SlideKit helps you make presentation slides on SwiftUI.  
-You can easily make presentation slides and customize the design perfectly because the all components are just SwiftUI's View.  
+<p align="center">
+    <img width="280" alt="logo" src="https://github.com/mtj0928/SlideKit/assets/12427733/5ba5419b-d0d1-4450-9a40-0e8b33133138">
+</p>
+<p align="center">
+    <strong>SlideKit</strong><br>
+    SlideKit helps you make presentation slides on SwiftUI.<br/>
+    You can easily make presentation slides and customize the design perfectly because the all components are just SwiftUI's View.  
+</p>
 
 ![Slides](https://user-images.githubusercontent.com/12427733/190956930-ea9ce4d0-0a19-4bb3-b43b-28dd2d73374a.png)
 
