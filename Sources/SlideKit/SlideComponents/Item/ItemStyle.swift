@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-public protocol ItemStyle {
+@MainActor
+public protocol ItemStyle: Sendable {
     associatedtype Body : View
 
     @ViewBuilder func makeBody(configuration: Self.Configuration) -> Self.Body
@@ -53,10 +54,10 @@ public struct ItemConfiguration {
     }
 }
 
-struct AnyItemStyle: ItemStyle {
-    private let converter: (Configuration) -> AnyView
+struct AnyItemStyle: ItemStyle, Sendable {
+    private let converter: @MainActor (Configuration) -> AnyView
 
-    init(style: some ItemStyle) {
+    nonisolated init(style: some ItemStyle) {
         converter = { configuration in
             AnyView(style.makeBody(configuration: configuration))
         }
@@ -103,7 +104,7 @@ public struct DefaultItemStyle: ItemStyle {
 }
 
 extension ItemStyle where Self == DefaultItemStyle {
-    public static var `default`: DefaultItemStyle {
+    public nonisolated static var `default`: DefaultItemStyle {
         DefaultItemStyle()
     }
 }

@@ -11,8 +11,7 @@
 ![Slides](https://user-images.githubusercontent.com/12427733/190956930-ea9ce4d0-0a19-4bb3-b43b-28dd2d73374a.png)
 
 ## Requirements
-- Xcode 15+
-- Swift 5.9
+- Swift 6.0
 
 ## Documents
 First, see the [Tutorial for SlideKit](https://mtj0928.github.io/SlideKit/tutorials/meet-slidekit).  

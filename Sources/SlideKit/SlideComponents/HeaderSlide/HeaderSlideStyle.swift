@@ -24,7 +24,8 @@ extension View {
     }
 }
 
-public protocol HeaderSlideStyle {
+@MainActor
+public protocol HeaderSlideStyle: Sendable {
     associatedtype Body : View
 
     @ViewBuilder func makeBody(configuration: Self.Configuration) -> Self.Body
@@ -33,7 +34,7 @@ public protocol HeaderSlideStyle {
 }
 
 extension HeaderSlideStyle where Self == DefaultHeaderSlideStyle {
-    public static var `default`: some HeaderSlideStyle {
+    public nonisolated static var `default`: some HeaderSlideStyle {
         DefaultHeaderSlideStyle()
     }
 }
@@ -65,11 +66,11 @@ public struct HeaderSlideStyleConfiguration {
     public var content: HeaderSlideStyleConfiguration.Content
 }
 
-struct AnyHeaderSlideStyle: HeaderSlideStyle {
-    private let converter: (Configuration) -> AnyView
+struct AnyHeaderSlideStyle: HeaderSlideStyle, Sendable {
+    private let converter: @MainActor (Configuration) -> AnyView
 
-    init(style: some HeaderSlideStyle) {
-        converter = { configuration in
+    nonisolated init(style: some HeaderSlideStyle) {
+        converter = { @MainActor configuration in
             AnyView(style.makeBody(configuration: configuration))
         }
     }
