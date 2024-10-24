@@ -1,10 +1,3 @@
-//
-//  EnvironmentValues+ObservableObjectContainer.swift
-//  
-//
-//  Created by Junnosuke Matsumoto on 2022/08/23.
-//
-
 import SwiftUI
 
 public enum ObservableObjectContainerKey: EnvironmentKey {

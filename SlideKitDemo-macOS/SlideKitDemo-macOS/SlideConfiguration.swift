@@ -1,12 +1,7 @@
-//
-//  SlideConfiguration.swift
-//
-//  Created by Junnosuke Matsumoto on 2022/08/26.
-//
-
 import SwiftUI
 import SlideKit
 
+@MainActor
 struct SlideConfiguration {
 
     /// Edit the slide size.

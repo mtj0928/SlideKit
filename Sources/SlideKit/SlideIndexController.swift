@@ -1,13 +1,8 @@
-//
-//  SlideIndexController.swift
-//  
-//
-//  Created by Junnosuke Matsumoto on 2022/08/23.
-//
-
 import Foundation
 
-public class SlideIndexController: ObservableObject {
+/// A controller managing the current slide index.
+@MainActor
+public final class SlideIndexController: ObservableObject {
 
     @Published
     public private(set) var currentIndex: Int

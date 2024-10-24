@@ -9,6 +9,7 @@ import Combine
 import SwiftUI
 
 @propertyWrapper
+@MainActor
 public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
 
     @Environment(\.slideIndexController)
@@ -42,6 +43,7 @@ public struct PhaseWrapper<State: PhasedState>: DynamicProperty {
     }
 }
 
+@MainActor
 @propertyWrapper
 public struct SharedObject<Object: ObservableObject>: DynamicProperty {
 

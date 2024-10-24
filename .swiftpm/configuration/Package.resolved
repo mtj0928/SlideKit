@@ -1,4 +1,5 @@
 {
+  "originHash" : "03685eda65c15da75dbc8741acf2f1e3229945f0308344acd05d8ef6aba454d9",
   "pins" : [
     {
       "identity" : "splash",
@@ -37,5 +38,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

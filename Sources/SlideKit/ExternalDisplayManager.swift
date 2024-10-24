@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 @available(iOS 15.0, *)
-public class ExternalDisplayManager: ObservableObject {
+@MainActor public final class ExternalDisplayManager: ObservableObject {
 
     @Published
     public private(set) var externalDisplayMode = ExternalDisplayMode.presentation

@@ -1,17 +1,11 @@
-//
-//  ObservableObjectContainer.swift
-//  
-//
-//  Created by Junnosuke Matsumoto on 2022/08/23.
-//
-
 import SwiftUI
 
-public class ObservableObjectContainer {
+@MainActor
+public final class ObservableObjectContainer: Sendable {
 
     private var container: [ObjectKey: Any] = [:]
 
-    public init() {}
+    nonisolated public init() {}
 
     public func resolve<Object: ObservableObject>(_ factory: () -> Object) -> Object {
         let objectKey = ObjectKey(objectType: Object.self)

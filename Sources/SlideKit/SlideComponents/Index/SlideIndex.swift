@@ -31,7 +31,8 @@ extension EnvironmentValues {
     }
 }
 
-public protocol IndexStyle {
+@MainActor
+public protocol IndexStyle: Sendable {
     typealias Configuration = IndexConfiguration
     associatedtype Body : View
 
