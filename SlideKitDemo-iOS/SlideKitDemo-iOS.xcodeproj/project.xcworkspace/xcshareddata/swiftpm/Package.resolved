@@ -1,0 +1,33 @@
+{
+  "originHash" : "c46fef24a11a01831ae22b435dbef09f3474184fcaba07dec5aca2007ffc966f",
+  "pins" : [
+    {
+      "identity" : "slidekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mtj0928/SlideKit",
+      "state" : {
+        "revision" : "5378ca9cc7393ac9392007f9cbf619f79a40ec81",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "splash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JohnSundell/Splash",
+      "state" : {
+        "revision" : "7f4df436eb78fe64fe2c32c58006e9949fa28ad8",
+        "version" : "0.16.0"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "64889f0c732f210a935a0ad7cda38f77f876262d",
+        "version" : "509.1.1"
+      }
+    }
+  ],
+  "version" : 3
+}
