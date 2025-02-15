@@ -15,6 +15,7 @@
 		1808A4D228B6751900E7AC77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4D128B6751900E7AC77 /* SceneDelegate.swift */; };
 		1808A4D528B6752800E7AC77 /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1808A4D428B6752800E7AC77 /* SlideKit */; };
 		1808A4DB28B677F200E7AC77 /* TitleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4DA28B677F200E7AC77 /* TitleSlide.swift */; };
+		68642A142D609659008288D1 /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 68642A132D609659008288D1 /* SlideKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1808A4D528B6752800E7AC77 /* SlideKit in Frameworks */,
+				68642A142D609659008288D1 /* SlideKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +116,7 @@
 			name = "SlideKitDemo-iOS";
 			packageProductDependencies = (
 				1808A4D428B6752800E7AC77 /* SlideKit */,
+				68642A132D609659008288D1 /* SlideKit */,
 			);
 			productName = "SlideKitDemo-iOS";
 			productReference = 1808A4BE28B674A500E7AC77 /* SlideKitDemo-iOS.app */;
@@ -143,6 +146,9 @@
 				Base,
 			);
 			mainGroup = 1808A4B528B674A500E7AC77;
+			packageReferences = (
+				68642A122D609659008288D1 /* XCRemoteSwiftPackageReference "SlideKit" */,
+			);
 			productRefGroup = 1808A4BF28B674A500E7AC77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -375,9 +381,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		68642A122D609659008288D1 /* XCRemoteSwiftPackageReference "SlideKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mtj0928/SlideKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		1808A4D428B6752800E7AC77 /* SlideKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = SlideKit;
+		};
+		68642A132D609659008288D1 /* SlideKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68642A122D609659008288D1 /* XCRemoteSwiftPackageReference "SlideKit" */;
 			productName = SlideKit;
 		};
 /* End XCSwiftPackageProductDependency section */
