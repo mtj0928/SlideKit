@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,7 @@
 		04E2C09328B9AA820076F292 /* BasicSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2C09228B9AA820076F292 /* BasicSlide.swift */; };
 		18A8404B28DC91A800139DC1 /* SlideConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8404A28DC91A800139DC1 /* SlideConfiguration.swift */; };
 		18D33A2D28D54D250095156B /* CustomHeaderStyleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D33A2C28D54D250095156B /* CustomHeaderStyleSlide.swift */; };
-		68642A172D60971A008288D1 /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 68642A162D60971A008288D1 /* SlideKit */; };
+		682CDF2F2D64CA1A0047599C /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 682CDF2E2D64CA1A0047599C /* SlideKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E2C09028B915A60076F292 /* SlideKit in Frameworks */,
-				68642A172D60971A008288D1 /* SlideKit in Frameworks */,
+				682CDF2F2D64CA1A0047599C /* SlideKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 			name = "SlideKitDemo-macOS";
 			packageProductDependencies = (
 				04E2C08F28B915A60076F292 /* SlideKit */,
-				68642A162D60971A008288D1 /* SlideKit */,
+				682CDF2E2D64CA1A0047599C /* SlideKit */,
 			);
 			productName = "SlideKitDemo-macOS";
 			productReference = 04E2C07C28B9155D0076F292 /* SlideKitDemo-macOS.app */;
@@ -146,7 +146,7 @@
 			);
 			mainGroup = 04E2C07328B9155D0076F292;
 			packageReferences = (
-				68642A152D60971A008288D1 /* XCRemoteSwiftPackageReference "SlideKit" */,
+				682CDF2D2D64CA1A0047599C /* XCLocalSwiftPackageReference "../../SlideKit" */,
 			);
 			productRefGroup = 04E2C07D28B9155D0076F292 /* Products */;
 			projectDirPath = "";
@@ -378,25 +378,20 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		68642A152D60971A008288D1 /* XCRemoteSwiftPackageReference "SlideKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mtj0928/SlideKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		682CDF2D2D64CA1A0047599C /* XCLocalSwiftPackageReference "../../SlideKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../SlideKit;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		04E2C08F28B915A60076F292 /* SlideKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SlideKit;
 		};
-		68642A162D60971A008288D1 /* SlideKit */ = {
+		682CDF2E2D64CA1A0047599C /* SlideKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 68642A152D60971A008288D1 /* XCRemoteSwiftPackageReference "SlideKit" */;
 			productName = SlideKit;
 		};
 /* End XCSwiftPackageProductDependency section */

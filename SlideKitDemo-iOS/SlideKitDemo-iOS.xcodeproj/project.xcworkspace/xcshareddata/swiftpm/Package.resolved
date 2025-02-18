@@ -1,15 +1,6 @@
 {
-  "originHash" : "c46fef24a11a01831ae22b435dbef09f3474184fcaba07dec5aca2007ffc966f",
+  "originHash" : "b36d783c9fa1b0130fec7c57cbce245a7776e516a27e654188e3e5cea7d56982",
   "pins" : [
-    {
-      "identity" : "slidekit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mtj0928/SlideKit",
-      "state" : {
-        "revision" : "5378ca9cc7393ac9392007f9cbf619f79a40ec81",
-        "version" : "0.5.0"
-      }
-    },
     {
       "identity" : "splash",
       "kind" : "remoteSourceControl",
