@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,8 +13,8 @@
 		1808A4C928B674A600E7AC77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1808A4C828B674A600E7AC77 /* Preview Assets.xcassets */; };
 		1808A4D028B674CB00E7AC77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4CF28B674CB00E7AC77 /* AppDelegate.swift */; };
 		1808A4D228B6751900E7AC77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4D128B6751900E7AC77 /* SceneDelegate.swift */; };
-		1808A4D528B6752800E7AC77 /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1808A4D428B6752800E7AC77 /* SlideKit */; };
 		1808A4DB28B677F200E7AC77 /* TitleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4DA28B677F200E7AC77 /* TitleSlide.swift */; };
+		682CDF2C2D64C9A30047599C /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 682CDF2B2D64C9A30047599C /* SlideKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1808A4D528B6752800E7AC77 /* SlideKit in Frameworks */,
+				682CDF2C2D64C9A30047599C /* SlideKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 			);
 			name = "SlideKitDemo-iOS";
 			packageProductDependencies = (
-				1808A4D428B6752800E7AC77 /* SlideKit */,
+				682CDF2B2D64C9A30047599C /* SlideKit */,
 			);
 			productName = "SlideKitDemo-iOS";
 			productReference = 1808A4BE28B674A500E7AC77 /* SlideKitDemo-iOS.app */;
@@ -143,6 +143,9 @@
 				Base,
 			);
 			mainGroup = 1808A4B528B674A500E7AC77;
+			packageReferences = (
+				682CDF2A2D64C9A30047599C /* XCLocalSwiftPackageReference "../../SlideKit" */,
+			);
 			productRefGroup = 1808A4BF28B674A500E7AC77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -375,8 +378,15 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		682CDF2A2D64C9A30047599C /* XCLocalSwiftPackageReference "../../SlideKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../SlideKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		1808A4D428B6752800E7AC77 /* SlideKit */ = {
+		682CDF2B2D64C9A30047599C /* SlideKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SlideKit;
 		};
