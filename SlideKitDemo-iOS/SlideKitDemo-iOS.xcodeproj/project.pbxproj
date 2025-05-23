@@ -7,26 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04E2C03928B8D82D0076F292 /* BasicSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2C03828B8D82D0076F292 /* BasicSlide.swift */; };
 		1808A4C228B674A500E7AC77 /* SlideKitDemo_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4C128B674A500E7AC77 /* SlideKitDemo_iOSApp.swift */; };
 		1808A4C628B674A600E7AC77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1808A4C528B674A600E7AC77 /* Assets.xcassets */; };
 		1808A4C928B674A600E7AC77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1808A4C828B674A600E7AC77 /* Preview Assets.xcassets */; };
 		1808A4D028B674CB00E7AC77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4CF28B674CB00E7AC77 /* AppDelegate.swift */; };
 		1808A4D228B6751900E7AC77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4D128B6751900E7AC77 /* SceneDelegate.swift */; };
-		1808A4DB28B677F200E7AC77 /* TitleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4DA28B677F200E7AC77 /* TitleSlide.swift */; };
+		186413782DE0C7C20004F356 /* BasicSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186413752DE0C7C20004F356 /* BasicSlide.swift */; };
+		186413792DE0C7C20004F356 /* CodeSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186413762DE0C7C20004F356 /* CodeSlide.swift */; };
+		1864137A2DE0C7C20004F356 /* CustomHeaderStyleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186413772DE0C7C20004F356 /* CustomHeaderStyleSlide.swift */; };
 		682CDF2C2D64C9A30047599C /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 682CDF2B2D64C9A30047599C /* SlideKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04E2C03828B8D82D0076F292 /* BasicSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSlide.swift; sourceTree = "<group>"; };
 		1808A4BE28B674A500E7AC77 /* SlideKitDemo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SlideKitDemo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1808A4C128B674A500E7AC77 /* SlideKitDemo_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideKitDemo_iOSApp.swift; sourceTree = "<group>"; };
 		1808A4C528B674A600E7AC77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1808A4C828B674A600E7AC77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1808A4CF28B674CB00E7AC77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1808A4D128B6751900E7AC77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1808A4DA28B677F200E7AC77 /* TitleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSlide.swift; sourceTree = "<group>"; };
 		1808A4DE28B67F9200E7AC77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		186413752DE0C7C20004F356 /* BasicSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSlide.swift; sourceTree = "<group>"; };
+		186413762DE0C7C20004F356 /* CodeSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSlide.swift; sourceTree = "<group>"; };
+		186413772DE0C7C20004F356 /* CustomHeaderStyleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderStyleSlide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +92,9 @@
 		1808A4D928B677E800E7AC77 /* Slides */ = {
 			isa = PBXGroup;
 			children = (
-				1808A4DA28B677F200E7AC77 /* TitleSlide.swift */,
-				04E2C03828B8D82D0076F292 /* BasicSlide.swift */,
+				186413752DE0C7C20004F356 /* BasicSlide.swift */,
+				186413762DE0C7C20004F356 /* CodeSlide.swift */,
+				186413772DE0C7C20004F356 /* CustomHeaderStyleSlide.swift */,
 			);
 			path = Slides;
 			sourceTree = "<group>";
@@ -173,10 +176,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1808A4D028B674CB00E7AC77 /* AppDelegate.swift in Sources */,
-				04E2C03928B8D82D0076F292 /* BasicSlide.swift in Sources */,
 				1808A4C228B674A500E7AC77 /* SlideKitDemo_iOSApp.swift in Sources */,
-				1808A4DB28B677F200E7AC77 /* TitleSlide.swift in Sources */,
 				1808A4D228B6751900E7AC77 /* SceneDelegate.swift in Sources */,
+				186413782DE0C7C20004F356 /* BasicSlide.swift in Sources */,
+				186413792DE0C7C20004F356 /* CodeSlide.swift in Sources */,
+				1864137A2DE0C7C20004F356 /* CustomHeaderStyleSlide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

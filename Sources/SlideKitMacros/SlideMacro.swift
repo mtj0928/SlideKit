@@ -24,6 +24,7 @@ public struct SlideMacro: ExtensionMacro, MemberMacro {
     public static func expansion(
         of node: AttributeSyntax,
         providingMembersOf declaration: some DeclGroupSyntax,
+        conformingTo protocols: [TypeSyntax],
         in context: some MacroExpansionContext
     ) throws -> [DeclSyntax] {
         let variables = declaration.memberBlock.members.map(\.decl).compactMap { $0.as(VariableDeclSyntax.self) }

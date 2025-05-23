@@ -14,8 +14,9 @@ final class SceneDelegate: NSObject, SlideWindowSceneDelegate {
     static let slideSize = SlideSize.standard16_9
     static let externalDisplayManager = ExternalDisplayManager(slideIndexController: slideIndexController)
     static let slideIndexController = SlideIndexController(index: 0) {
-        TitleSlide(title: "Hoge")
         BasicSlide()
+        CodeSlide()
+        CustomHeaderStyleSlide()
     }
 
     var window: UIWindow?

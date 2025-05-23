@@ -1,14 +1,6 @@
 {
+  "originHash" : "e2ae081226954a839092b79977627fcdf7148917e6b573a6f665b3cc153e9c92",
   "pins" : [
-    {
-      "identity" : "splash",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/JohnSundell/Splash",
-      "state" : {
-        "revision" : "7f4df436eb78fe64fe2c32c58006e9949fa28ad8",
-        "version" : "0.16.0"
-      }
-    },
     {
       "identity" : "swift-docc-plugin",
       "kind" : "remoteSourceControl",
@@ -32,10 +24,19 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-syntax.git",
       "state" : {
-        "revision" : "64889f0c732f210a935a0ad7cda38f77f876262d",
-        "version" : "509.1.1"
+        "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
+        "version" : "601.0.1"
+      }
+    },
+    {
+      "identity" : "syntaxink",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mtj0928/SyntaxInk",
+      "state" : {
+        "revision" : "66fea7139f8e27cc2ac7c42fa9a5167c59685e16",
+        "version" : "0.0.2"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
