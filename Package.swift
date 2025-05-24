@@ -11,8 +11,8 @@ let package = Package(
         .library(name: "SlideKit", targets: ["SlideKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-syntax", from: "601.0.0"),
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.0.0"),
+        .package(url: "https://github.com/swiftlang/swift-syntax", from: "601.0.0"),
         .package(url: "https://github.com/mtj0928/SyntaxInk", from: "0.0.2"),
     ],
     targets: [
