@@ -19,6 +19,7 @@ struct CodeSlide: View {
             )
             .lineSpacing(10)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            .allowsHitTesting(false)
         }
     }
 }

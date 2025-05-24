@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-#if os(iOS)
+#if canImport(UIKit)
 public struct iOSPresenterView<Content>: View where Content: View {
 
     private let slideSize: CGSize

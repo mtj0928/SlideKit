@@ -5,7 +5,7 @@
 //  Created by Junnosuke Matsumoto on 2022/08/24.
 //
 
-#if os(iOS)
+#if canImport(UIKit)
 import UIKit
 
 extension UISceneSession.Role {
