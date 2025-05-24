@@ -6,7 +6,7 @@ import CompilerPluginSupport
 
 let package = Package(
     name: "SlideKit",
-    platforms: [.iOS(.v15), .macOS(.v12)],
+    platforms: [.iOS(.v17), .macOS(.v14), .visionOS(.v1), .tvOS(.v17)],
     products: [
         .library(name: "SlideKit", targets: ["SlideKit"]),
     ],

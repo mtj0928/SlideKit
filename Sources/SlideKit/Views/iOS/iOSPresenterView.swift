@@ -34,11 +34,13 @@ public struct iOSPresenterView<Content>: View where Content: View {
                 content()
             }
             .clipped()
+#if os(iOS)
             .overlay {
                 menuButton
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                     .padding()
             }
+#endif
         }
         .ignoresSafeArea()
     }
