@@ -86,20 +86,4 @@ extension SyntaxHighlighter where Self == SwiftSyntaxHighlighter {
             return base
         })
     }
-//    public static var defaultDark: CodeColorTheme {
-//        CodeColorTheme(
-//            plainTextColor: Color(red: 1, green: 1, blue: 1),
-//            tokenColors: [
-//                .keyword: Splash.Color(red: 252 / 255, green: 96 / 255, blue: 163 / 255),
-//                .string: Splash.Color(red: 252 / 255, green: 106 / 255, blue: 93 / 255),
-//                .type: Splash.Color(red: 158 / 255, green: 241 / 255, blue: 221 / 255),
-//                .call: Splash.Color(red: 103 / 255, green: 183 / 255, blue: 164 / 255),
-//                .number: Splash.Color(red: 208 / 255, green: 191 / 255, blue: 105 / 255),
-//                .comment: Splash.Color(red: 108 / 255, green: 121 / 255, blue: 134 / 255),
-//                .property: Splash.Color(red: 103 / 255, green: 183 / 255, blue: 164 / 255),
-//                .dotAccess: Splash.Color(red: 103 / 255, green: 183 / 255, blue: 164 / 255),
-//                .preprocessing: Splash.Color(red: 253 / 255, green: 143 / 255, blue: 63 / 255)
-//            ]
-//        )
-//    }
 }
