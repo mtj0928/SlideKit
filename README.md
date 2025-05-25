@@ -11,7 +11,8 @@
 ![Slides](https://user-images.githubusercontent.com/12427733/190956930-ea9ce4d0-0a19-4bb3-b43b-28dd2d73374a.png)
 
 ## Requirements
-- Swift 6.0
+- Swift 6.0+
+- iOS 17+, macOS 14+, visionOS 1+, tvOS 17+
 
 ## Documents
 First, see the [Tutorial for SlideKit](https://mtj0928.github.io/SlideKit/tutorials/meet-slidekit).  
@@ -30,7 +31,7 @@ If you want to know more details, refer the [DocC Style Document](https://mtj092
 - [x] Support two windows, presentation window and presenter window.
 - [x] Show scripts on only presenter window (only macOS)
 - [x] Provide `@Phase`, so you can divide a one slide step by step.
-- [x] Export PDF file (only macOS 13+)
+- [x] Export PDF file
 
 ## Simple Example
 You can create a presentation by SwiftUI like this.
@@ -54,6 +55,6 @@ And then, this is the result of the code.
 <img width="1096" alt="IntroductionSlide" src="https://user-images.githubusercontent.com/12427733/190955403-ed64a5fd-eed0-4a4c-8684-75f39623a563.png">
 
 ## Presentations made with SlideKit
-If you make presentations slide with SlideKit, add it to the following litst!!
+Feel free to add your presentations made by SlideKit to the following list!!
 - [After iOSDC](https://github.com/mtj0928/AfteriOSDC): A presentation, which shares the hard points to make presentations slides by SwiftUI. (Japanese)
 - [iOSDC23](https://github.com/mtj0928/iOSDC23) A presentation, which shows a dependency injection strategy on SwiftUI. (Japanese)

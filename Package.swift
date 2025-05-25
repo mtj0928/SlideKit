@@ -6,21 +6,22 @@ import CompilerPluginSupport
 
 let package = Package(
     name: "SlideKit",
-    platforms: [.iOS(.v15), .macOS(.v12)],
+    platforms: [.iOS(.v17), .macOS(.v14), .visionOS(.v1), .tvOS(.v17)],
     products: [
         .library(name: "SlideKit", targets: ["SlideKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
-        .package(url: "https://github.com/JohnSundell/Splash", from: "0.1.0"),
-        .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.0"),
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.0.0"),
+        .package(url: "https://github.com/swiftlang/swift-syntax", from: "601.0.0"),
+        .package(url: "https://github.com/mtj0928/SyntaxInk", from: "0.0.2"),
     ],
     targets: [
         .target(
             name: "SlideKit",
             dependencies: [
                 "SlideKitMacros",
-                "Splash"
+                .product(name: "SwiftSyntaxInk", package: "SyntaxInk"),
+                .product(name: "SyntaxInk", package: "SyntaxInk")
             ]
         ),
         .macro(

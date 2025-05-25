@@ -7,26 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04E2C03928B8D82D0076F292 /* BasicSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2C03828B8D82D0076F292 /* BasicSlide.swift */; };
 		1808A4C228B674A500E7AC77 /* SlideKitDemo_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4C128B674A500E7AC77 /* SlideKitDemo_iOSApp.swift */; };
 		1808A4C628B674A600E7AC77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1808A4C528B674A600E7AC77 /* Assets.xcassets */; };
 		1808A4C928B674A600E7AC77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1808A4C828B674A600E7AC77 /* Preview Assets.xcassets */; };
 		1808A4D028B674CB00E7AC77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4CF28B674CB00E7AC77 /* AppDelegate.swift */; };
 		1808A4D228B6751900E7AC77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4D128B6751900E7AC77 /* SceneDelegate.swift */; };
-		1808A4DB28B677F200E7AC77 /* TitleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A4DA28B677F200E7AC77 /* TitleSlide.swift */; };
+		186413782DE0C7C20004F356 /* BasicSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186413752DE0C7C20004F356 /* BasicSlide.swift */; };
+		186413792DE0C7C20004F356 /* CodeSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186413762DE0C7C20004F356 /* CodeSlide.swift */; };
+		1864137A2DE0C7C20004F356 /* CustomHeaderStyleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186413772DE0C7C20004F356 /* CustomHeaderStyleSlide.swift */; };
 		682CDF2C2D64C9A30047599C /* SlideKit in Frameworks */ = {isa = PBXBuildFile; productRef = 682CDF2B2D64C9A30047599C /* SlideKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04E2C03828B8D82D0076F292 /* BasicSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSlide.swift; sourceTree = "<group>"; };
 		1808A4BE28B674A500E7AC77 /* SlideKitDemo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SlideKitDemo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1808A4C128B674A500E7AC77 /* SlideKitDemo_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideKitDemo_iOSApp.swift; sourceTree = "<group>"; };
 		1808A4C528B674A600E7AC77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1808A4C828B674A600E7AC77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1808A4CF28B674CB00E7AC77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1808A4D128B6751900E7AC77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1808A4DA28B677F200E7AC77 /* TitleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSlide.swift; sourceTree = "<group>"; };
 		1808A4DE28B67F9200E7AC77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		186413752DE0C7C20004F356 /* BasicSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSlide.swift; sourceTree = "<group>"; };
+		186413762DE0C7C20004F356 /* CodeSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSlide.swift; sourceTree = "<group>"; };
+		186413772DE0C7C20004F356 /* CustomHeaderStyleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderStyleSlide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +92,9 @@
 		1808A4D928B677E800E7AC77 /* Slides */ = {
 			isa = PBXGroup;
 			children = (
-				1808A4DA28B677F200E7AC77 /* TitleSlide.swift */,
-				04E2C03828B8D82D0076F292 /* BasicSlide.swift */,
+				186413752DE0C7C20004F356 /* BasicSlide.swift */,
+				186413762DE0C7C20004F356 /* CodeSlide.swift */,
+				186413772DE0C7C20004F356 /* CustomHeaderStyleSlide.swift */,
 			);
 			path = Slides;
 			sourceTree = "<group>";
@@ -127,7 +130,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					1808A4BD28B674A500E7AC77 = {
 						CreatedOnToolsVersion = 14.0;
@@ -173,10 +176,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1808A4D028B674CB00E7AC77 /* AppDelegate.swift in Sources */,
-				04E2C03928B8D82D0076F292 /* BasicSlide.swift in Sources */,
 				1808A4C228B674A500E7AC77 /* SlideKitDemo_iOSApp.swift in Sources */,
-				1808A4DB28B677F200E7AC77 /* TitleSlide.swift in Sources */,
 				1808A4D228B6751900E7AC77 /* SceneDelegate.swift in Sources */,
+				186413782DE0C7C20004F356 /* BasicSlide.swift in Sources */,
+				186413792DE0C7C20004F356 /* CodeSlide.swift in Sources */,
+				1864137A2DE0C7C20004F356 /* CustomHeaderStyleSlide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,8 +221,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 79Q7G522V8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -277,8 +283,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 79Q7G522V8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -305,7 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SlideKitDemo-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 79Q7G522V8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SlideKitDemo-iOS/Info.plist";
@@ -313,6 +321,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +329,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.matsuji.SlideKitDemo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
 			};
 			name = Debug;
 		};
@@ -334,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SlideKitDemo-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 79Q7G522V8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SlideKitDemo-iOS/Info.plist";
@@ -342,6 +355,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -349,9 +363,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.matsuji.SlideKitDemo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
 			};
 			name = Release;
 		};
