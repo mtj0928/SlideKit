@@ -6,14 +6,14 @@ extension SyntaxHighlighter where Self == SwiftSyntaxHighlighter {
 
     /// A color theme matching Xcode's "Presentation" theme
     public static var presentation: Self {
-        presentation(size: 48)
+        presentation(fontSize: 48)
     }
 
     /// A color theme matching Xcode's "Presentation" theme
-    public static func presentation(size: CGFloat) -> Self {
+    public static func presentation(fontSize: CGFloat) -> Self {
         SwiftSyntaxHighlighter(theme: SwiftTheme { kind in
             var base = SyntaxStyle(
-                font: .custom(name: "Menlo", size: size, weight: .regular),
+                font: .custom(name: "Menlo", size: fontSize, weight: .regular),
                 color: SyntaxColor(red: 0, green: 0, blue: 0)
             )
             switch kind {
@@ -50,14 +50,14 @@ extension SyntaxHighlighter where Self == SwiftSyntaxHighlighter {
 
     /// A color theme matching Xcode's "Presentation Dark" theme
     public static var presentationDark: Self {
-        presentationDark(size: 48)
+        presentationDark(fontSize: 48)
     }
 
     /// A color theme matching Xcode's "Presentation Dark" theme
-    public static func presentationDark(size: CGFloat) -> Self {
+    public static func presentationDark(fontSize: CGFloat) -> Self {
         SwiftSyntaxHighlighter(theme: SwiftTheme { kind in
             var base = SyntaxStyle(
-                font: .custom(name: "Menlo", size: size, weight: .regular),
+                font: .custom(name: "Menlo", size: fontSize, weight: .regular),
                 color: SyntaxColor(red: 255, green: 255, blue: 255)
             )
             #if os(iOS)
