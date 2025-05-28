@@ -29,7 +29,9 @@ public struct iOSPresenterView<Content>: View where Content: View {
 
     public var body: some View {
         ZStack(alignment: .center) {
+#if !os(visionOS)
             Color.black
+#endif
             SlideScreen(slideSize: slideSize) {
                 content()
             }
