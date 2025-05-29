@@ -29,9 +29,7 @@ public struct PresentationView<Content>: View where Content: View {
 
     public var body: some View {
         ZStack(alignment: .center) {
-#if !os(visionOS)
-            Color.black
-#endif
+            Color.slideDefaultBackground
             SlideScreen(slideSize: slideSize) {
                 content()
             }
