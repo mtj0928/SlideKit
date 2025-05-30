@@ -13,7 +13,13 @@ final class SceneDelegate: NSObject, SlideWindowSceneDelegate {
     
     static let slideSize = SlideSize.standard16_9
     static let externalDisplayManager = ExternalDisplayManager(slideIndexController: slideIndexController)
-    static let slideIndexController = SlideIndexController(index: 0) {
+    static let slideIndexController = SlideIndexController(index: 0, transition: { from, to in
+        if let from, from > to {
+            return .push(from: .leading)
+        } else {
+            return .push(from: .trailing)
+        }
+    }) {
         BasicSlide()
         CodeSlide()
         CustomHeaderStyleSlide()

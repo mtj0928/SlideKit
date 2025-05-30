@@ -8,7 +8,13 @@ struct SlideConfiguration {
     let size = SlideSize.standard16_9
 
     ///  Add your slides into the trailing closure.
-    let slideIndexController = SlideIndexController {
+    let slideIndexController = SlideIndexController(transition: { from, to in
+        if let from, from > to {
+            return .push(from: .leading)
+        } else {
+            return .push(from: .trailing)
+        }
+    }) {
         BasicSlide()
         CodeSlide()
         CustomHeaderStyleSlide()
