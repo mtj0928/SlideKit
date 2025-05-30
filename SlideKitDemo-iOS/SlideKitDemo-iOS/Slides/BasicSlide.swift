@@ -22,6 +22,14 @@ struct BasicSlide: View {
             }
         }
     }
+
+    var backwardTransition: AnyTransition {
+        .push(from: .leading)
+    }
+
+    var forwardTransition: AnyTransition {
+        .push(from: .trailing)
+    }
 }
 
 struct BasicSlide_Previews: PreviewProvider {

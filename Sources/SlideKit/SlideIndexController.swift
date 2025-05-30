@@ -7,6 +7,18 @@ public final class SlideIndexController: ObservableObject {
     @Published
     public private(set) var currentIndex: Int
 
+    /// The last index of the slide before the current index was changed.
+    /// This is useful for determining the previous slide index.
+    /// It is `nil` when the current index is changed for the first time.
+    internal var lastIndex: Int?
+
+    /// Updates the current index and stores the previous index.
+    /// - Parameter currentIndex: The new index to set as the current index.
+    private func updateCurrentIndex(_ currentIndex: Int) {
+        lastIndex = self.currentIndex
+        self.currentIndex = currentIndex
+    }
+
     @Published
     public private(set) var currentScript = ""
 
@@ -44,7 +56,7 @@ public final class SlideIndexController: ObservableObject {
         guard currentIndex + 1 < slides.count else {
             return false
         }
-        currentIndex += 1
+        updateCurrentIndex(currentIndex + 1)
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.backToFirst()
         return true
@@ -61,14 +73,14 @@ public final class SlideIndexController: ObservableObject {
         guard 0 < currentIndex else {
             return false
         }
-        currentIndex -= 1
+        updateCurrentIndex(currentIndex - 1)
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.forwardToLast()
         return true
     }
 
     public func backToFirst() {
-        currentIndex = 0
+        updateCurrentIndex(0)
         let phasedStateStore = getPhasedStateStore(at: currentIndex)
         phasedStateStore.backToFirst()
         currentScript = currentSlide.script(on: objectContainer)
@@ -80,7 +92,7 @@ public final class SlideIndexController: ObservableObject {
     }
 
     public func move(to index: Int) {
-        currentIndex = index
+        updateCurrentIndex(index)
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.backToFirst()
         currentScript = currentSlide.script(on: objectContainer)
