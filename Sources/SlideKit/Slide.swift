@@ -51,10 +51,24 @@ public protocol Slide: View {
     /// Inject PhasedStateStore.
     /// This function should be called by SlideKit, please do not call the function.
     func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>)
+
+    /// The transition animation when going backward to this slide.
+    /// The default value is `.identity`.
+    var backwardTransition: AnyTransition { get }
+
+    /// The transition animation when going forward to this slide.
+    /// The default value is `.identity`.
+    var forwardTransition: AnyTransition { get }
 }
 
 extension Slide {
     public var script: String { "" }
     public var shouldHideIndex: Bool { false }
     public func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>) {}
+    public var backwardTransition: AnyTransition {
+        .identity
+    }
+    public var forwardTransition: AnyTransition {
+        .identity
+    }
 }
