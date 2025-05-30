@@ -22,6 +22,14 @@ struct CodeSlide: View {
             .allowsHitTesting(false)
         }
     }
+
+    var backwardTransition: AnyTransition {
+        .push(from: .leading)
+    }
+
+    var forwardTransition: AnyTransition {
+        .push(from: .trailing)
+    }
 }
 
 #Preview {

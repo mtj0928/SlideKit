@@ -22,6 +22,14 @@ struct CustomHeaderStyleSlide: View {
         .headerSlideStyle(CustomHeaderStyle())
         .itemStyle(CustomItemStyle())
     }
+
+    var backwardTransition: AnyTransition {
+        .push(from: .leading)
+    }
+
+    var forwardTransition: AnyTransition {
+        .push(from: .trailing)
+    }
 }
 
 struct CustomHeaderStyle: HeaderSlideStyle {
