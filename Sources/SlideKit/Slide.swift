@@ -51,10 +51,24 @@ public protocol Slide: View {
     /// Inject PhasedStateStore.
     /// This function should be called by SlideKit, please do not call the function.
     func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>)
+
+    /// The transition animation when moving forward to this slide.
+    /// Defines the animation effect used when transitioning to this slide.
+    /// The default value is `.identity` (no animation).
+    ///
+    /// Example usage:
+    /// ```swift
+    /// var transition: AnyTransition { .slide.combined(with: .opacity) }
+    /// ```
+    var transition: AnyTransition { get }
 }
 
 extension Slide {
     public var script: String { "" }
     public var shouldHideIndex: Bool { false }
     public func phasesStateSore(_ phasedStateStore: PhasedStateStore<SlidePhasedState>) {}
+
+    /// Default implementation of transition.
+    /// Returns identity transition (no animation) when not overridden.
+    public var transition: AnyTransition { .identity }
 }
