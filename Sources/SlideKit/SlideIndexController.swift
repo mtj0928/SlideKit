@@ -10,7 +10,7 @@ public final class SlideIndexController: ObservableObject {
     /// The last index of the slide before the current index was changed.
     /// This is useful for determining the previous slide index.
     /// It is `nil` when the current index is changed for the first time.
-    internal var lastIndex: Int?
+    private(set) var lastIndex: Int?
 
     /// Updates the current index and stores the previous index.
     /// - Parameter currentIndex: The new index to set as the current index.
