@@ -22,6 +22,10 @@ struct CodeSlide: View {
             .allowsHitTesting(false)
         }
     }
+
+    var transition: AnyTransition {
+        .scale
+    }
 }
 
 #Preview {

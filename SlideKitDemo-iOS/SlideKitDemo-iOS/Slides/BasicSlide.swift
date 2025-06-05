@@ -22,6 +22,10 @@ struct BasicSlide: View {
             }
         }
     }
+
+    var transition: AnyTransition {
+        .scale
+    }
 }
 
 struct BasicSlide_Previews: PreviewProvider {
