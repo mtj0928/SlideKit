@@ -25,7 +25,6 @@ public struct SlideRouterView: View {
                 Index(slideIndexController: slideIndexController)
             }
         }
-        .animation(.default, value: slideIndexController.currentIndex)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .slideTransition(
             back: { slideIndexController.back() },

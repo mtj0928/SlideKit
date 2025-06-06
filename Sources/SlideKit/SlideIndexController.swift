@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 /// A controller managing the current slide index.
 @MainActor
@@ -44,7 +45,9 @@ public final class SlideIndexController: ObservableObject {
         guard currentIndex + 1 < slides.count else {
             return false
         }
-        currentIndex += 1
+        withAnimation {
+            currentIndex += 1
+        }
         let newPhasedStateStore = getPhasedStateStore(at: currentIndex)
         newPhasedStateStore.backToFirst()
         return true
