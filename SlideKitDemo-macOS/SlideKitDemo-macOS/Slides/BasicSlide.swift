@@ -32,6 +32,10 @@ struct BasicSlide: View {
         }
     }
 
+    var transition: AnyTransition {
+        .scale
+    }
+
     var script: String {
         switch phase {
         case .initial:

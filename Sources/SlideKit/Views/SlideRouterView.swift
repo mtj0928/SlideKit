@@ -18,6 +18,8 @@ public struct SlideRouterView: View {
     public var body: some View {
         ZStack {
             AnyView(slideIndexController.currentSlide)
+              .transition(slideIndexController.currentSlide.transition)
+              .id(slideIndexController.currentIndex)
 
             if !slideIndexController.currentSlide.shouldHideIndex {
                 Index(slideIndexController: slideIndexController)

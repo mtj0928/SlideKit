@@ -21,6 +21,10 @@ struct CodeSlide: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         }
     }
+
+    var transition: AnyTransition {
+        .scale
+    }
 }
 
 #Preview {

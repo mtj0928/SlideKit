@@ -22,6 +22,10 @@ struct CustomHeaderStyleSlide: View {
         .headerSlideStyle(CustomHeaderStyle())
         .itemStyle(CustomItemStyle())
     }
+
+    var transition: AnyTransition {
+        .scale
+    }
 }
 
 struct CustomHeaderStyle: HeaderSlideStyle {
