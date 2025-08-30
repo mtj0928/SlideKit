@@ -1,5 +1,5 @@
 {
-  "originHash" : "8bc4397f7f8827eb9da5a2fb38c45283499892d7c437674bb34138569968e519",
+  "originHash" : "b2b4b099dea00c2109675413c65c68a786be8a72da102c67a47bccdf12549c2a",
   "pins" : [
     {
       "identity" : "swift-docc-plugin",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-syntax",
       "state" : {
-        "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
-        "version" : "601.0.1"
+        "branch" : "release/6.2.0",
+        "revision" : "21b3b45635decd1a0b89968f81b6d9a93128f773"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mtj0928/SyntaxInk",
       "state" : {
-        "revision" : "66fea7139f8e27cc2ac7c42fa9a5167c59685e16",
-        "version" : "0.0.2"
+        "branch" : "swift6.2",
+        "revision" : "2930037d6980ba38d53de4aea4b9ac00ee719093"
       }
     }
   ],
