@@ -30,8 +30,8 @@ public final class SlideIndexController: ObservableObject {
         guard index < slides.count else {
             fatalError("index must be less than the number of slides.")
         }
-
         self.currentIndex = index
+        currentScript = currentSlide.script(on: objectContainer)
     }
 
     @discardableResult
