@@ -34,6 +34,21 @@ public final class SlideIndexController: ObservableObject {
         currentScript = currentSlide.script(on: objectContainer)
     }
 
+    public init(
+        index: Int = 0,
+        container: ObservableObjectContainer = ObservableObjectContainerKey.defaultValue,
+        slides: [any Slide]
+    ) {
+        self.slides = slides
+        self.objectContainer = container
+
+        guard index < slides.count else {
+            fatalError("index must be less than the number of slides.")
+        }
+        self.currentIndex = index
+        currentScript = currentSlide.script(on: objectContainer)
+    }
+
     @discardableResult
     public func forward() -> Bool {
         defer { currentScript = currentSlide.script(on: objectContainer) }
